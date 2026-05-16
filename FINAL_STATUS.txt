@@ -110,14 +110,14 @@ Typography:
 WHATSAPP & CONTACT LINKS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-PAYMENT ONLY: https://wa.link/aps8r5
+PAYMENT ONLY: https://wa.link/d4oxqj
   Used in:
   ✅ Pricing page - "Book Now" buttons
   ✅ CTA section - "Start 7-Day Trial"
   ✅ Payment success page - Auto-redirect after 3 seconds
   ✅ Booking confirmation email
 
-INQUIRIES & SUPPORT: https://wa.link/oktez7
+INQUIRIES & SUPPORT: https://wa.link/d4oxqj
   Used in:
   ✅ Navbar - "Get Started" button
   ✅ Hero section - "Start Your Project"

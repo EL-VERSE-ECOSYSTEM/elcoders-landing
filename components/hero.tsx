@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -42,16 +43,14 @@ export function Hero() {
         </p>
 
         <div className="flex flex-col md:flex-row gap-4 justify-center mb-12">
-          <a
-            href="https://wa.link/oktez7"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/booking"
             className="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg font-semibold text-lg hover:opacity-90 transition transform hover:scale-105 text-center"
           >
-            Start Your Project
-          </a>
+            Book a Consultation
+          </Link>
           <a
-            href="https://wa.link/oktez7"
+            href="https://wa.link/d4oxqj"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 border border-slate-700 text-white rounded-lg font-semibold text-lg hover:bg-slate-800 transition text-center"
