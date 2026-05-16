@@ -99,7 +99,7 @@ export async function POST(request: NextRequest) {
               
               <p><strong>Quick Links:</strong></p>
               <ul>
-                <li><a href="https://wa.link/oktez7">Chat with us on WhatsApp</a></li>
+                <li><a href="https://wa.link/d4oxqj">Chat with us on WhatsApp</a></li>
                 <li><a href="mailto:elcoderssofwares12@gmail.com">Send us an email</a></li>
                 <li><a href="https://x.com/ElVerse27">Follow us on Twitter</a></li>
               </ul>

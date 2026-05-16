@@ -1,25 +1,27 @@
 'use client';
 
 import { useState } from 'react';
+import { AnimatedLoader } from './ui/AnimatedLoader';
+
+const WHATSAPP_BUSINESS_NUMBER = "2348123456789"; // Replace with real number
 
 export function Booking() {
   const [formData, setFormData] = useState({
-    countryCode: '+234',
     name: '',
     email: '',
+    countryCode: '+234',
     phone: '',
+    service: '',
     date: '',
     time: '',
-    service: '',
     message: '',
   });
 
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [errorMsg, setErrorMsg] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'reply'>('idle');
+  const [autoReply, setAutoReply] = useState('');
 
-  // Comprehensive country codes list
   const countryCodes = [
-    { code: '+1', country: 'United States & Canada' },
+    { code: '+1', country: 'USA & Canada' },
     { code: '+44', country: 'United Kingdom' },
     { code: '+61', country: 'Australia' },
     { code: '+81', country: 'Japan' },
@@ -95,252 +97,293 @@ export function Booking() {
     { code: '+598', country: 'Uruguay' },
   ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const services = [
+    'Web App Development',
+    'Mobile App Development',
+    'MVP (Minimum Viable Product)',
+    'AI/ML Solutions',
+    'Cybersecurity Services',
+    'SaaS Platform',
+    'Full Stack Development',
+    'UI/UX Design',
+    'Cloud/DevOps',
+  ];
+
+  const timeSlots = [
+    '09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00',
+  ];
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('loading');
-    setErrorMsg('');
+  const generateAutoReply = (name: string, serviceQuery: string) => {
+    const serviceKeywords = [
+      { keys: ["mvp", "minimum viable product"], price: "$3,500 - $5,000 depending on scope", detail: "MVP in 4 weeks flat price start $3,500" },
+      { keys: ["penetration", "pentest", "security audit"], price: "$500 - $1,500", detail: "Cybersecurity: audit from $500, pentest $1,500" },
+      { keys: ["react native", "mobile app", "flutter", "ios", "android"], price: "$5,000+", detail: "Cross-platform or native apps — starting $5k" },
+      { keys: ["saas", "saas platform", "subscription"], price: "$6,500", detail: "Full SaaS with multi-tenancy & billing" },
+      { keys: ["frontend", "landing page", "corporate website", "dashboard"], price: "$500 - $2,500", detail: "Frontend & dashboards tailored" },
+      { keys: ["backend", "api", "database", "auth"], price: "$800 - $1,500", detail: "APIs, auth, DB design flat rates" },
+      { keys: ["ecommerce", "shopify", "woocommerce"], price: "$1,200 - $4,000", detail: "E‑commerce & CMS solutions" },
+      { keys: ["ai", "chatbot", "chatgpt", "automation"], price: "$1,500+", detail: "AI integration & custom automation" },
+      { keys: ["devops", "docker", "kubernetes", "cicd"], price: "$500 - $2,000", detail: "DevOps & infrastructure setup" },
+      { keys: ["maintenance", "retainer", "hourly"], price: "$50/hour or $450+/mo", detail: "Support retainers & emergency fixes" },
+      { keys: ["compliance", "gdpr", "bug bounty"], price: "$800 - $2,000", detail: "Compliance / bug bounty program" },
+    ];
 
-    try {
-      const response = await fetch('/api/booking', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+    let estimatedPrice = "custom quote (negotiable)";
+    let matchedDetail = "We'll provide exact estimate after brief chat.";
+    let lowerQuery = serviceQuery.toLowerCase();
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to book appointment');
+    for (let entry of serviceKeywords) {
+      for (let kw of entry.keys) {
+        if (lowerQuery.includes(kw)) {
+          estimatedPrice = entry.price;
+          matchedDetail = entry.detail;
+          break;
+        }
       }
-
-      setStatus('success');
-      setFormData({
-        countryCode: '+234',
-        name: '',
-        email: '',
-        phone: '',
-        date: '',
-        time: '',
-        service: '',
-        message: '',
-      });
-
-      // Reset success message after 4 seconds
-      setTimeout(() => setStatus('idle'), 4000);
-    } catch (error) {
-      setStatus('error');
-      setErrorMsg(error instanceof Error ? error.message : 'An error occurred');
+      if (estimatedPrice !== "custom quote (negotiable)") break;
     }
+
+    return `✅ AUTO-REPLY from ELCODERS (EL VERSE ECOSYSTEM)
+
+Hi ${name}, thanks for booking a consultation!
+📌 Your interest: "${serviceQuery}"
+📅 Preferred: ${formData.date} at ${formData.time}
+💰 Estimated price range: ${estimatedPrice}
+🛠️ Details: ${matchedDetail}
+
+🎯 Why choose ELCODERS:
+• 4-week MVP delivery • 100% code ownership • Flat project pricing • Free 2‑week support
+• Part of EL VERSE (ELITES, ELSPACE, EL ACCESS, NEXEL)
+
+🔁 Next step: Click the WhatsApp button below to confirm your slot and continue negotiation with our dev team.
+💳 Korapay link: https://checkout.korapay.com/pay/jz9dTrCxCRGCyRv
+
+— ELCODERS team | we build, you scale.`;
   };
 
-  const services = [
-    'Web App Development',
-    'Mobile App Development',
-    'AI/ML Solutions',
-    'Cybersecurity Services',
-    'Full Stack Development',
-    'Azure Cloud Services',
-    'Blockchain Development',
-    'UI/UX Design',
-    'Consultation',
-  ];
+  const handleSendRequest = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.service || !formData.phone) return;
 
-  // Generate available time slots
-  const timeSlots = [
-    '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
-    '13:00', '13:30', '14:00', '14:30', '15:00', '15:30',
-    '16:00', '16:30', '17:00',
-  ];
+    setStatus('loading');
 
-  // Get minimum date (today)
+    setTimeout(() => {
+      const reply = generateAutoReply(formData.name, formData.service);
+      setAutoReply(reply);
+      setStatus('reply');
+    }, 1500);
+  };
+
+  const redirectToWhatsApp = () => {
+    let message = `Hello ELCODERS team! I just booked a consultation.\n`;
+    message += `Name: ${formData.name}\n`;
+    message += `Phone: ${formData.countryCode}${formData.phone}\n`;
+    message += `Service: ${formData.service}\n`;
+    message += `Schedule: ${formData.date} @ ${formData.time}\n`;
+    if (formData.email) message += `Email: ${formData.email}\n`;
+    message += `\n(I'd like to confirm this consultation and discuss the estimated pricing/timeline.)`;
+
+    const waUrl = `https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(waUrl, "_blank");
+  };
+
   const today = new Date().toISOString().split('T')[0];
 
   return (
-    <section id="booking" className="py-20 bg-gradient-to-b from-slate-950 to-slate-900">
+    <section id="booking" className="py-20 bg-slate-950 relative">
       <div className="max-w-4xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-balance">
-            Book Your Consultation
-          </h2>
-          <p className="text-lg text-slate-400">
-            Schedule a 30-minute call with our team to discuss your project
-          </p>
-        </div>
+        <div className="bg-slate-900/80 backdrop-blur border border-slate-700 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 md:p-12">
-          {status === 'success' && (
-            <div className="mb-8 p-4 bg-green-900/20 border border-green-500/50 rounded-lg">
-              <p className="text-green-400 text-center">
-                ✓ Appointment booked successfully! Check your email for confirmation.
-              </p>
-            </div>
-          )}
+          <div className="relative z-10">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              📅 Book Your Consultation
+            </h3>
+            <p className="text-slate-400 mb-8">
+              Schedule a call with our team. We'll auto-reply with a summary and then redirect you to WhatsApp.
+            </p>
 
-          {status === 'error' && (
-            <div className="mb-8 p-4 bg-red-900/20 border border-red-500/50 rounded-lg">
-              <p className="text-red-400 text-center">
-                ✗ {errorMsg}
-              </p>
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-white font-semibold mb-2">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="John Doe"
-                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition"
-                />
-              </div>
-
-              <div>
-                <label className="block text-white font-semibold mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="john@example.com"
-                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition"
-                />
-              </div>
-
-              <div>
-                <label className="block text-white font-semibold mb-2">
-                  Country Code
-                </label>
-                <select
-                  name="countryCode"
-                  value={formData.countryCode}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition"
-                >
-                  {countryCodes.map(item => (
-                    <option key={item.code} value={item.code}>
-                      {item.code} {item.country}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-white font-semibold mb-2">
-                  Phone Number
-                </label>
-                <div className="flex gap-2">
-                  <div className="px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white font-semibold">
-                    {formData.countryCode}
+            {status === 'idle' && (
+              <form onSubmit={handleSendRequest} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-bold text-cyan-400 uppercase tracking-wider mb-2">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      placeholder="e.g., John Doe"
+                      className="w-full px-4 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition shadow-inner"
+                    />
                   </div>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    placeholder="800 000 0000"
-                    className="flex-1 px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition"
-                  />
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-bold text-cyan-400 uppercase tracking-wider mb-2">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="john@example.com"
+                      className="w-full px-4 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition shadow-inner"
+                    />
+                  </div>
+                  <div className="flex gap-2">
+                    <div className="w-1/3">
+                        <label htmlFor="countryCode" className="block text-sm font-bold text-cyan-400 uppercase tracking-wider mb-2">
+                        Code
+                        </label>
+                        <select
+                        id="countryCode"
+                        name="countryCode"
+                        value={formData.countryCode}
+                        onChange={handleChange}
+                        className="w-full px-4 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-cyan-500 transition"
+                        >
+                        {countryCodes.map(c => (
+                            <option key={c.code} value={c.code}>{c.code} ({c.country})</option>
+                        ))}
+                        </select>
+                    </div>
+                    <div className="w-2/3">
+                        <label htmlFor="phone" className="block text-sm font-bold text-cyan-400 uppercase tracking-wider mb-2">
+                        Phone Number
+                        </label>
+                        <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        required
+                        placeholder="800 000 0000"
+                        className="w-full px-4 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition shadow-inner"
+                        />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="service" className="block text-sm font-bold text-cyan-400 uppercase tracking-wider mb-2">
+                      Service
+                    </label>
+                    <select
+                      id="service"
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-cyan-500 transition"
+                    >
+                      <option value="">Select a service</option>
+                      {services.map(s => (
+                        <option key={s} value={s}>{s}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="date" className="block text-sm font-bold text-cyan-400 uppercase tracking-wider mb-2">
+                      Preferred Date
+                    </label>
+                    <input
+                      type="date"
+                      id="date"
+                      name="date"
+                      value={formData.date}
+                      onChange={handleChange}
+                      required
+                      min={today}
+                      className="w-full px-4 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-cyan-500 transition"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="time" className="block text-sm font-bold text-cyan-400 uppercase tracking-wider mb-2">
+                      Preferred Time
+                    </label>
+                    <select
+                      id="time"
+                      name="time"
+                      value={formData.time}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-cyan-500 transition"
+                    >
+                      <option value="">Select a time</option>
+                      {timeSlots.map(t => (
+                        <option key={t} value={t}>{t}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="md:col-span-2">
+                    <label htmlFor="message" className="block text-sm font-bold text-cyan-400 uppercase tracking-wider mb-2">
+                      Project Brief / Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={4}
+                      placeholder="Tell us about your project requirements..."
+                      className="w-full px-4 py-4 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition shadow-inner resize-none"
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.02] transition transform"
+                >
+                  📩 Confirm & Continue to WhatsApp
+                </button>
+              </form>
+            )}
+
+            {status === 'loading' && (
+              <div className="py-20">
+                <AnimatedLoader />
+              </div>
+            )}
+
+            {status === 'reply' && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <div className="bg-slate-800 border-l-4 border-cyan-500 p-6 rounded-xl">
+                  <h4 className="text-cyan-400 font-bold mb-4 flex items-center gap-2">
+                    <span>📩</span> IN-APP AUTO-REPLY (ELCODERS)
+                  </h4>
+                  <pre className="text-slate-300 font-sans whitespace-pre-wrap text-sm leading-relaxed">
+                    {autoReply}
+                  </pre>
+                </div>
+
+                <div className="flex flex-col md:flex-row gap-4">
+                  <button
+                    onClick={redirectToWhatsApp}
+                    className="flex-1 py-4 bg-[#25D366] text-white rounded-xl font-bold text-lg hover:bg-[#20ba5a] transition flex items-center justify-center gap-2 shadow-lg shadow-green-500/20"
+                  >
+                    <span>💬</span> Confirm on WhatsApp →
+                  </button>
+                  <button
+                    onClick={() => setStatus('idle')}
+                    className="px-8 py-4 bg-slate-800 text-slate-400 rounded-xl font-bold hover:bg-slate-700 transition"
+                  >
+                    ✖ Dismiss
+                  </button>
                 </div>
               </div>
-
-              <div>
-                <label className="block text-white font-semibold mb-2">
-                  Service
-                </label>
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition"
-                >
-                  <option value="">Select a service</option>
-                  {services.map(service => (
-                    <option key={service} value={service}>
-                      {service}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-white font-semibold mb-2">
-                  Preferred Date
-                </label>
-                <input
-                  type="date"
-                  name="date"
-                  value={formData.date}
-                  onChange={handleChange}
-                  required
-                  min={today}
-                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition"
-                />
-              </div>
-
-              <div>
-                <label className="block text-white font-semibold mb-2">
-                  Preferred Time
-                </label>
-                <select
-                  name="time"
-                  value={formData.time}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition"
-                >
-                  <option value="">Select a time</option>
-                  {timeSlots.map(slot => (
-                    <option key={slot} value={slot}>
-                      {slot}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-white font-semibold mb-2">
-                Project Details
-              </label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Tell us about your project, requirements, goals, budget, and timeline..."
-                rows={5}
-                className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition resize-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={status === 'loading'}
-              className="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg font-semibold text-lg hover:shadow-lg hover:shadow-cyan-500/30 hover:scale-105 transition transform disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100"
-            >
-              {status === 'loading' ? 'Booking...' : 'Book Your Appointment'}
-            </button>
-
-            <p className="text-center text-slate-400 text-sm mt-4">
-              We&apos;ll send you a confirmation email with all appointment details
-            </p>
-          </form>
+            )}
+          </div>
         </div>
       </div>
     </section>

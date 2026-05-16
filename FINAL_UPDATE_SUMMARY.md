@@ -31,8 +31,8 @@
 
 #### Contact Information
 - **Email**: elcoderssofwares12@gmail.com
-- **WhatsApp Business**: https://wa.link/aps8r5 (for support/follow-ups)
-- **WhatsApp Inquiry**: https://wa.link/oktez7 (for new bookings)
+- **WhatsApp Business**: https://wa.link/d4oxqj (for support/follow-ups)
+- **WhatsApp Inquiry**: https://wa.link/d4oxqj (for new bookings)
 - **Twitter**: https://x.com/ElVerse27
 - **Location**: All footer links updated correctly
 
@@ -77,7 +77,7 @@ ELCODERS provides comprehensive development services:
 1. User clicks pricing plan
 2. Korapay payment initialization
 3. Payment processing
-4. **Automatic redirect** to WhatsApp (https://wa.link/aps8r5)
+4. **Automatic redirect** to WhatsApp (https://wa.link/d4oxqj)
 5. Team connects within 2 hours
 
 ---
@@ -127,16 +127,16 @@ Comprehensive 15-section agreement covering:
 ### 7. Navigation & CTA Updates
 
 #### All Click Actions Configured
-- **"Start Your Project"** → https://wa.link/oktez7
-- **"Get Started"** → https://wa.link/oktez7
-- **"WhatsApp Connect"** → https://wa.link/oktez7
-- **Footer WhatsApp** → https://wa.link/aps8r5
+- **"Start Your Project"** → https://wa.link/d4oxqj
+- **"Get Started"** → https://wa.link/d4oxqj
+- **"WhatsApp Connect"** → https://wa.link/d4oxqj
+- **Footer WhatsApp** → https://wa.link/d4oxqj
 - **Email Link** → elcoderssofwares12@gmail.com
 - **Twitter Link** → https://x.com/ElVerse27
 
 #### Post-Payment Flow
 - **Payment Success Page**: Displays transaction details
-- **Auto-Redirect**: Redirects to WhatsApp (https://wa.link/aps8r5) after 3 seconds
+- **Auto-Redirect**: Redirects to WhatsApp (https://wa.link/d4oxqj) after 3 seconds
 - **Manual Links**: Available for user control
 
 ---

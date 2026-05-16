@@ -2,8 +2,8 @@
 
 ## Contact Information
 - **Email**: elcoderssofwares12@gmail.com
-- **WhatsApp (Support)**: https://wa.link/aps8r5
-- **WhatsApp (Inquiry)**: https://wa.link/oktez7
+- **WhatsApp (Support)**: https://wa.link/d4oxqj
+- **WhatsApp (Inquiry)**: https://wa.link/d4oxqj
 - **Twitter**: https://x.com/ElVerse27
 
 ## Subscription Plans

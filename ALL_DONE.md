@@ -55,13 +55,13 @@
 
 ### 6. WhatsApp Links Properly Configured ✓
 
-**Payment ONLY link: https://wa.link/aps8r5**
+**Payment ONLY link: https://wa.link/d4oxqj**
 - Pricing cards: "Start 7-Day Trial"
 - Enterprise: "Book Custom Consultation"
 - Payment success: Auto-redirect after 3 seconds
 - Final CTA: "Start 7-Day Trial Now"
 
-**All Other Uses: https://wa.link/oktez7**
+**All Other Uses: https://wa.link/d4oxqj**
 - Navbar: "Get Started"
 - Hero: "Start Your Project" + "WhatsApp Connect"
 - Footer: "Chat with Us"

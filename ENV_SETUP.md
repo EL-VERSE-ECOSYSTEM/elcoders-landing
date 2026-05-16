@@ -47,8 +47,8 @@ EMAIL_PASSWORD=your_gmail_app_password
 
 ## WhatsApp Links
 
-- **Payment Only**: https://wa.link/aps8r5
-- **Inquiries & Support**: https://wa.link/oktez7
+- **Payment Only**: https://wa.link/d4oxqj
+- **Inquiries & Support**: https://wa.link/d4oxqj
 
 These links are embedded in:
 - CTA sections

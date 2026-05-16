@@ -39,13 +39,13 @@
 ### 2. Payment Auto-Redirect
 - After successful payment verification
 - 3-second countdown
-- Automatic redirect to WhatsApp: https://wa.link/aps8r5
+- Automatic redirect to WhatsApp: https://wa.link/d4oxqj
 - Manual links available for user control
 
 ### 3. Social Links
 - Twitter: https://x.com/ElVerse27 (Added to footer)
-- WhatsApp Support: https://wa.link/aps8r5 (footer)
-- WhatsApp Inquiry: https://wa.link/oktez7 (CTAs)
+- WhatsApp Support: https://wa.link/d4oxqj (footer)
+- WhatsApp Inquiry: https://wa.link/d4oxqj (CTAs)
 - Email: elcoderssofwares12@gmail.com (footer + legal pages)
 
 ---
@@ -54,13 +54,13 @@
 
 ### Navigation
 - `components/navbar.tsx`
-  - "Get Started" button → WhatsApp link (https://wa.link/oktez7)
+  - "Get Started" button → WhatsApp link (https://wa.link/d4oxqj)
   - Desktop and mobile versions updated
   - Proper link styling and target="_blank"
 
 ### Hero Section
 - `components/hero.tsx`
-  - "Start Your Project" → WhatsApp link (https://wa.link/oktez7)
+  - "Start Your Project" → WhatsApp link (https://wa.link/d4oxqj)
   - "WhatsApp Connect" button (replaced "View Our Work")
   - Both links open in new tab
 
@@ -88,7 +88,7 @@
   - Footer links now point to:
     - Privacy Policy: `/privacy-policy`
     - Terms of Service: `/terms-of-service`
-  - WhatsApp link: https://wa.link/aps8r5
+  - WhatsApp link: https://wa.link/d4oxqj
   - Email link: elcoderssofwares12@gmail.com
 
 ### Pricing Section
@@ -137,7 +137,7 @@ if (contentType && contentType.includes('application/json')) {
 ```typescript
 // Added auto-redirect after verification
 setTimeout(() => {
-  window.location.href = 'https://wa.link/aps8r5';
+  window.location.href = 'https://wa.link/d4oxqj';
 }, 3000);
 ```
 
@@ -169,8 +169,8 @@ setTimeout(() => {
 
 ### Contact Information
 - Email: elcoderssofwares12@gmail.com
-- WhatsApp (Support): https://wa.link/aps8r5
-- WhatsApp (Inquiry): https://wa.link/oktez7
+- WhatsApp (Support): https://wa.link/d4oxqj
+- WhatsApp (Inquiry): https://wa.link/d4oxqj
 - Twitter: https://x.com/ElVerse27
 
 ---
@@ -191,10 +191,10 @@ setTimeout(() => {
 ## Testing Checklist
 
 ### Links & Navigation
-- [ ] Navbar "Get Started" → https://wa.link/oktez7
-- [ ] Hero "Start Your Project" → https://wa.link/oktez7
-- [ ] Hero "WhatsApp Connect" → https://wa.link/oktez7
-- [ ] Footer WhatsApp → https://wa.link/aps8r5
+- [ ] Navbar "Get Started" → https://wa.link/d4oxqj
+- [ ] Hero "Start Your Project" → https://wa.link/d4oxqj
+- [ ] Hero "WhatsApp Connect" → https://wa.link/d4oxqj
+- [ ] Footer WhatsApp → https://wa.link/d4oxqj
 - [ ] Footer Email → elcoderssofwares12@gmail.com
 - [ ] Footer Twitter → https://x.com/ElVerse27
 - [ ] Privacy Policy link → /privacy-policy

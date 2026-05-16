@@ -123,12 +123,12 @@
 ## WhatsApp & Contact Links
 
 ### Link Distribution:
-- **https://wa.link/aps8r5** → Payment/Purchases ONLY
+- **https://wa.link/d4oxqj** → Payment/Purchases ONLY
   - Pricing cards "Book Now" buttons
   - CTA section main call-to-action
   - Payment success page
 
-- **https://wa.link/oktez7** → All Other Inquiries
+- **https://wa.link/d4oxqj** → All Other Inquiries
   - Navbar "Get Started"
   - Hero "Start Your Project"
   - Hero "WhatsApp Connect"

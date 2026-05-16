@@ -12,15 +12,15 @@ Successfully updated the ELCODERS landing page to match the complete brand requi
 #### Payment Success Page
 - After payment completes, users are redirected to success page
 - Success page shows two primary action buttons:
-  - **WhatsApp CTA**: `https://wa.link/aps8r5` (green button)
+  - **WhatsApp CTA**: `https://wa.link/d4oxqj` (green button)
   - **Email CTA**: `elcoderssofwares12@gmail.com`
   - Return Home button back to landing page
 - Message updated: "Our team will reach out within 2 hours to start your project"
 
 #### Navigation & Hero Section
-- **Navbar "Get Started" button**: Links to `https://wa.link/oktez7`
-- **Hero "Start Your Project" button**: Links to `https://wa.link/oktez7`
-- **Hero "WhatsApp Connect" button**: Links to `https://wa.link/oktez7`
+- **Navbar "Get Started" button**: Links to `https://wa.link/d4oxqj`
+- **Hero "Start Your Project" button**: Links to `https://wa.link/d4oxqj`
+- **Hero "WhatsApp Connect" button**: Links to `https://wa.link/d4oxqj`
 - Both desktop and mobile navigation updated
 
 ### 2. **Pricing Section - Complete Redesign**
@@ -130,13 +130,13 @@ New component added after Hero section:
 ### 7. **Footer Updates**
 
 - Email contact: `elcoderssofwares12@gmail.com` (clickable mailto link)
-- WhatsApp link: `https://wa.link/aps8r5`
+- WhatsApp link: `https://wa.link/d4oxqj`
 - Copyright updated: "© 2026 EL VERSE TECHNOLOGIES. Daily Velocity, Zero Fluff."
 - Added proper contact methods in Connect section
 
 ### 8. **Navbar Updates**
 
-- All "Get Started" buttons now redirect to WhatsApp: `https://wa.link/oktez7`
+- All "Get Started" buttons now redirect to WhatsApp: `https://wa.link/d4oxqj`
 - Desktop and mobile navigation aligned
 - Links for How It Works, Pricing, Timeline, FAQ section anchors
 
@@ -172,8 +172,8 @@ New component added after Hero section:
 
 ## Contact Methods
 
-- **WhatsApp (After Payment)**: https://wa.link/aps8r5
-- **WhatsApp (Booking/Inquiry)**: https://wa.link/oktez7
+- **WhatsApp (After Payment)**: https://wa.link/d4oxqj
+- **WhatsApp (Booking/Inquiry)**: https://wa.link/d4oxqj
 - **Email**: elcoderssofwares12@gmail.com
 
 ---

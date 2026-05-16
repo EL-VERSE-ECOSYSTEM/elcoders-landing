@@ -16,24 +16,29 @@ export function Navbar() {
             alt="ELCODERS Logo" 
             width={40} 
             height={40}
-            className="rounded"
+            className="rounded-full border border-cyan-500/50"
           />
-          <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            ELCODERS
-          </span>
+          <div className="flex flex-col">
+            <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent leading-none">
+              ELCODERS
+            </span>
+            <span className="text-[10px] text-cyan-500 font-bold tracking-tighter uppercase leading-none mt-1">
+              EL VERSE ECOSYSTEM
+            </span>
+          </div>
         </Link>
         
         <div className="hidden md:flex gap-8">
-          <a href="#services" className="text-slate-300 hover:text-white transition">
+          <a href="/#catalog" className="text-slate-300 hover:text-white transition">
             Services
           </a>
-          <a href="#pricing" className="text-slate-300 hover:text-white transition">
+          <a href="/#pricing" className="text-slate-300 hover:text-white transition">
             Pricing
           </a>
-          <a href="#timeline" className="text-slate-300 hover:text-white transition">
-            Timeline
-          </a>
-          <a href="#faq" className="text-slate-300 hover:text-white transition">
+          <Link href="/booking" className="text-cyan-400 hover:text-cyan-300 transition font-semibold">
+            Book Now
+          </Link>
+          <a href="/#faq" className="text-slate-300 hover:text-white transition">
             FAQ
           </a>
         </div>
@@ -48,7 +53,7 @@ export function Navbar() {
         </button>
 
         <a
-          href="https://wa.link/oktez7"
+          href="https://wa.link/d4oxqj"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:block px-6 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg font-semibold hover:opacity-90 transition"
@@ -73,7 +78,7 @@ export function Navbar() {
               FAQ
             </a>
             <a
-              href="https://wa.link/oktez7"
+              href="https://wa.link/d4oxqj"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full px-6 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg font-semibold hover:opacity-90 transition text-center block"
