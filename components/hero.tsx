@@ -28,13 +28,13 @@ export function Hero() {
           <p className="text-sm text-cyan-400 font-semibold">Welcome to the future of development</p>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white text-balance">
-          Code Shipped in 24 Hours
-          <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">Zero Fluff. Daily Velocity.</span>
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white text-balance tracking-tight">
+          Your Idea + Our Code =
+          <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">Scalable Success</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto text-balance">
-          Premium dev team for Web Apps, Mobile Apps, AI/ML & more. Senior developers from $49/day. Pause anytime. No lock-in. We handle contracts.
+        <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto text-balance leading-relaxed">
+          From Whiteboard to Worldwide — In 4 Weeks. EL CODERS: Where Startups Find Their Technical Backbone.
         </p>
 
         <div className="flex flex-col md:flex-row gap-4 justify-center mb-12">
@@ -56,35 +56,31 @@ export function Hero() {
           </a>
         </div>
 
-        {/* Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-slate-700">
-          <div className="group">
-            <div className="flex items-center justify-center mb-2 text-cyan-400 text-2xl group-hover:scale-110 transition transform">
-              ⚡
-            </div>
-            <p className="text-2xl md:text-3xl font-bold text-white">24hrs</p>
-            <p className="text-slate-400 text-sm">First Commit</p>
+        {/* USPs */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-slate-700">
+          <div className="flex flex-col items-center text-center">
+            <div className="text-cyan-400 text-3xl mb-3">🚀</div>
+            <p className="text-slate-200 text-sm font-medium">12+ MVPs delivered in 2024 — 3 are now funded</p>
           </div>
-          <div className="group">
-            <div className="flex items-center justify-center mb-2 text-blue-400 text-2xl group-hover:scale-110 transition transform">
-              🎯
-            </div>
-            <p className="text-2xl md:text-3xl font-bold text-white">500+</p>
-            <p className="text-slate-400 text-sm">Dev Hours</p>
+          <div className="flex flex-col items-center text-center">
+            <div className="text-blue-400 text-3xl mb-3">⏱️</div>
+            <p className="text-slate-200 text-sm font-medium">4-week MVP delivery or it&apos;s free</p>
           </div>
-          <div className="group">
-            <div className="flex items-center justify-center mb-2 text-cyan-400 text-2xl group-hover:scale-110 transition transform">
-              😊
-            </div>
-            <p className="text-2xl md:text-3xl font-bold text-white">98%</p>
-            <p className="text-slate-400 text-sm">Satisfaction</p>
+          <div className="flex flex-col items-center text-center">
+            <div className="text-cyan-400 text-3xl mb-3">🛡️</div>
+            <p className="text-slate-200 text-sm font-medium">100% code ownership — no lock-in, no traps</p>
           </div>
-          <div className="group">
-            <div className="flex items-center justify-center mb-2 text-blue-400 text-2xl group-hover:scale-110 transition transform">
-              🌍
-            </div>
-            <p className="text-2xl md:text-3xl font-bold text-white">40+</p>
-            <p className="text-slate-400 text-sm">Countries</p>
+          <div className="flex flex-col items-center text-center">
+            <div className="text-blue-400 text-3xl mb-3">💰</div>
+            <p className="text-slate-200 text-sm font-medium">Flat project pricing — no hourly surprises</p>
+          </div>
+          <div className="flex flex-col items-center text-center">
+            <div className="text-cyan-400 text-3xl mb-3">🤝</div>
+            <p className="text-slate-200 text-sm font-medium">Free 2-week support after launch</p>
+          </div>
+          <div className="flex flex-col items-center text-center">
+            <div className="text-blue-400 text-3xl mb-3">👨‍💻</div>
+            <p className="text-slate-200 text-sm font-medium">Senior developers, not juniors</p>
           </div>
         </div>
       </div>

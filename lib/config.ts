@@ -67,9 +67,12 @@ export const pricingConfig = {
 
 // Site configuration
 export const siteConfig = {
-  name: 'ELCODERS',
+  name: 'EL CODERS',
+  tagline: 'We Build. You Scale.',
+  parent: 'EL VERSE TECHNOLOGIES',
+  ecosystem: 'Part of EL VERSE ECOSYSTEM — EL ACCESS, ELSPACE, ELITES, NEXEL',
   description:
-    'Transform your vision into reality with cutting-edge web development, UI/UX design, and AI solutions.',
+    'EL CODERS: Where Startups Find Their Technical Backbone. Flat Fees. Full Ownership. No Ghosting.',
   url: korapayConfig.appUrl,
   ogImage: `${korapayConfig.appUrl}/og-image.png`,
   links: {

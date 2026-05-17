@@ -19,21 +19,24 @@ export function Navbar() {
             className="rounded"
           />
           <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            ELCODERS
+            EL CODERS
           </span>
         </Link>
         
         <div className="hidden md:flex gap-8">
-          <a href="#services" className="text-slate-300 hover:text-white transition">
+          <a href="/#services" className="text-slate-300 hover:text-white transition">
             Services
           </a>
-          <a href="#pricing" className="text-slate-300 hover:text-white transition">
+          <a href="/#pricing" className="text-slate-300 hover:text-white transition">
             Pricing
           </a>
-          <a href="#timeline" className="text-slate-300 hover:text-white transition">
-            Timeline
-          </a>
-          <a href="#faq" className="text-slate-300 hover:text-white transition">
+          <Link href="/payments" className="text-slate-300 hover:text-white transition">
+            Payments
+          </Link>
+          <Link href="/careers" className="text-slate-300 hover:text-white transition">
+            Careers
+          </Link>
+          <a href="/#faq" className="text-slate-300 hover:text-white transition">
             FAQ
           </a>
         </div>
@@ -58,16 +61,19 @@ export function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-slate-900 border-t border-slate-800 p-4">
           <div className="flex flex-col gap-4">
-            <a href="#services" className="text-slate-300 hover:text-white transition">
+            <a href="/#services" className="text-slate-300 hover:text-white transition">
               Services
             </a>
-            <a href="#pricing" className="text-slate-300 hover:text-white transition">
+            <a href="/#pricing" className="text-slate-300 hover:text-white transition">
               Pricing
             </a>
-            <a href="#timeline" className="text-slate-300 hover:text-white transition">
-              Timeline
-            </a>
-            <a href="#faq" className="text-slate-300 hover:text-white transition">
+            <Link href="/payments" className="text-slate-300 hover:text-white transition">
+              Payments
+            </Link>
+            <Link href="/careers" className="text-slate-300 hover:text-white transition">
+              Careers
+            </Link>
+            <a href="/#faq" className="text-slate-300 hover:text-white transition">
               FAQ
             </a>
             <a
