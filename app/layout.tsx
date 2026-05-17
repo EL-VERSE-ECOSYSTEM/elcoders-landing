@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next'
+import { Suspense } from 'react'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { Loader } from '@/components/loader'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -19,7 +21,6 @@ export const metadata: Metadata = {
   generator: 'v0.app',
   icons: {
     icon: [
-      { url: '/favicon.ico' },
       { url: '/elcoders-logo.png', type: 'image/png' },
     ],
     apple: '/apple-icon.png',
@@ -35,6 +36,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans antialiased">
+        <Suspense fallback={null}>
+          <Loader />
+        </Suspense>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
