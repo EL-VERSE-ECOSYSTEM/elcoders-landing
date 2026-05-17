@@ -16,6 +16,8 @@ export function Booking() {
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [autoReply, setAutoReply] = useState<string | null>(null);
+  const [waUrl, setWaUrl] = useState('https://wa.link/d4oxqj');
 
   // Comprehensive country codes list
   const countryCodes = [
@@ -100,10 +102,53 @@ export function Booking() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const generateAutoReply = (name: string, serviceQuery: string) => {
+    const serviceKeywords = [
+      {keys: ["mvp", "minimum viable product"], price: "$3,500 - $5,000 depending on scope", detail: "MVP in 4 weeks flat price start $3,500"},
+      {keys: ["penetration", "pentest", "security audit"], price: "$500 - $1,500", detail: "Cybersecurity: audit from $500, pentest $1,500"},
+      {keys: ["react native", "mobile app", "flutter", "ios", "android"], price: "$5,000+", detail: "Cross-platform or native apps — starting $5k"},
+      {keys: ["saas", "saas platform", "subscription"], price: "$6,500", detail: "Full SaaS with multi-tenancy & billing"},
+      {keys: ["frontend", "landing page", "corporate website", "dashboard"], price: "$500 - $2,500", detail: "Frontend & dashboards tailored"},
+      {keys: ["backend", "api", "database", "auth"], price: "$800 - $1,500", detail: "APIs, auth, DB design flat rates"},
+      {keys: ["ecommerce", "shopify", "woocommerce"], price: "$1,200 - $4,000", detail: "E‑commerce & CMS solutions"},
+      {keys: ["ai", "chatbot", "chatgpt", "automation"], price: "$1,500+", detail: "AI integration & custom automation"},
+      {keys: ["devops", "docker", "kubernetes", "cicd"], price: "$500 - $2,000", detail: "DevOps & infrastructure setup"},
+      {keys: ["maintenance", "retainer", "hourly"], price: "$50/hour or $450+/mo", detail: "Support retainers & emergency fixes"},
+      {keys: ["compliance", "gdpr", "bug bounty"], price: "$800 - $2,000", detail: "Compliance / bug bounty program"},
+    ];
+
+    let estimatedPrice = "custom quote (negotiable)";
+    let matchedDetail = "We'll provide exact estimate after brief chat.";
+    let lowerQuery = serviceQuery.toLowerCase();
+    for(let entry of serviceKeywords) {
+        for(let kw of entry.keys) {
+            if(lowerQuery.includes(kw)) {
+                estimatedPrice = entry.price;
+                matchedDetail = entry.detail;
+                break;
+            }
+        }
+        if(estimatedPrice !== "custom quote (negotiable)") break;
+    }
+
+    return `✅ AUTO-REPLY from ELCODERS (EL VERSE ECOSYSTEM)\n\nHi ${name}, thanks for your interest in our tech services!\n📌 Your request: "${serviceQuery}"\n💰 Estimated price range: ${estimatedPrice}\n🛠️ Details: ${matchedDetail}\n\n🎯 Why choose ELCODERS:\n• 4-week MVP delivery • 100% code ownership • Flat project pricing • Free 2‑week support\n• Part of EL VERSE (ELITES, ELSPACE, EL ACCESS, NEXEL)\n\n🔁 Next step: Click the WhatsApp button below to continue negotiation with our dev team. We'll answer timeline, discounts, and custom requirements.\n(You can also pay deposit via Korapay before or after negotiation.)\n💳 Korapay link: https://checkout.korapay.com/pay/jz9dTrCxCRGCyRv\n\n— ELCODERS team | we build, you scale.`;
+  };
+
+  const getWhatsAppUrl = (userName: string, userService: string, userEmail: string) => {
+    const WHATSAPP_BUSINESS_NUMBER = "2349012345678"; // Using a placeholder for now, ideally this would be from env
+    let message = `Hello ELCODERS team! I just submitted an in-app request.%0A`;
+    message += `Name: ${userName}%0A`;
+    message += `Service(s) interested in: ${userService}%0A`;
+    if(userEmail) message += `Email: ${userEmail}%0A`;
+    message += `%0A(After auto-reply, I'd like to negotiate pricing for the above services. Please share final estimate & timeline.)`;
+    return `https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?text=${message}`;
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
     setErrorMsg('');
+    setAutoReply(null);
 
     try {
       const response = await fetch('/api/booking', {
@@ -119,6 +164,10 @@ export function Booking() {
       }
 
       setStatus('success');
+      const reply = generateAutoReply(formData.name, formData.service);
+      setAutoReply(reply);
+      setWaUrl(getWhatsAppUrl(formData.name, formData.service, formData.email));
+
       setFormData({
         countryCode: '+234',
         name: '',
@@ -129,11 +178,6 @@ export function Booking() {
         service: '',
         message: '',
       });
-
-      // Redirect to WhatsApp after 2 seconds
-      setTimeout(() => {
-        window.location.href = 'https://wa.link/d4oxqj';
-      }, 2000);
     } catch (error) {
       setStatus('error');
       setErrorMsg(error instanceof Error ? error.message : 'An error occurred');
@@ -175,11 +219,30 @@ export function Booking() {
         </div>
 
         <div className="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 md:p-12">
-          {status === 'success' && (
-            <div className="mb-8 p-4 bg-green-900/20 border border-green-500/50 rounded-lg">
-              <p className="text-green-400 text-center">
-                ✓ Appointment booked successfully! Check your email for confirmation.
-              </p>
+          {status === 'success' && autoReply && (
+            <div className="mb-8 p-6 bg-green-900/20 border border-green-500/50 rounded-lg animate-in fade-in zoom-in duration-500">
+              <h3 className="text-green-400 font-bold mb-4 flex items-center gap-2">
+                <span>📩 IN-APP AUTO-REPLY (ELCODERS)</span>
+              </h3>
+              <pre className="whitespace-pre-wrap font-mono text-sm text-slate-300 bg-slate-900/50 p-4 rounded-lg mb-6 border border-slate-700">
+                {autoReply}
+              </pre>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href={waUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 px-6 py-3 bg-[#25D366] text-white rounded-lg font-bold text-center hover:bg-[#20bd5c] transition transform hover:scale-105"
+                >
+                  💬 Continue to WhatsApp for negotiation →
+                </a>
+                <button
+                  onClick={() => setStatus('idle')}
+                  className="px-6 py-3 bg-slate-700 text-white rounded-lg font-semibold hover:bg-slate-600 transition"
+                >
+                  ✖️ Dismiss
+                </button>
+              </div>
             </div>
           )}
 
@@ -194,10 +257,11 @@ export function Booking() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-white font-semibold mb-2">
+                <label htmlFor="name" className="block text-white font-semibold mb-2">
                   Full Name
                 </label>
                 <input
+                  id="name"
                   type="text"
                   name="name"
                   value={formData.name}
@@ -209,10 +273,11 @@ export function Booking() {
               </div>
 
               <div>
-                <label className="block text-white font-semibold mb-2">
+                <label htmlFor="email" className="block text-white font-semibold mb-2">
                   Email Address
                 </label>
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   value={formData.email}
@@ -224,10 +289,11 @@ export function Booking() {
               </div>
 
               <div>
-                <label className="block text-white font-semibold mb-2">
+                <label htmlFor="countryCode" className="block text-white font-semibold mb-2">
                   Country Code
                 </label>
                 <select
+                  id="countryCode"
                   name="countryCode"
                   value={formData.countryCode}
                   onChange={handleChange}
@@ -242,7 +308,7 @@ export function Booking() {
               </div>
 
               <div>
-                <label className="block text-white font-semibold mb-2">
+                <label htmlFor="phone" className="block text-white font-semibold mb-2">
                   Phone Number
                 </label>
                 <div className="flex gap-2">
@@ -250,6 +316,7 @@ export function Booking() {
                     {formData.countryCode}
                   </div>
                   <input
+                    id="phone"
                     type="tel"
                     name="phone"
                     value={formData.phone}
@@ -262,10 +329,11 @@ export function Booking() {
               </div>
 
               <div>
-                <label className="block text-white font-semibold mb-2">
+                <label htmlFor="service" className="block text-white font-semibold mb-2">
                   Service
                 </label>
                 <select
+                  id="service"
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
@@ -282,10 +350,11 @@ export function Booking() {
               </div>
 
               <div>
-                <label className="block text-white font-semibold mb-2">
+                <label htmlFor="date" className="block text-white font-semibold mb-2">
                   Preferred Date
                 </label>
                 <input
+                  id="date"
                   type="date"
                   name="date"
                   value={formData.date}
@@ -297,10 +366,11 @@ export function Booking() {
               </div>
 
               <div>
-                <label className="block text-white font-semibold mb-2">
+                <label htmlFor="time" className="block text-white font-semibold mb-2">
                   Preferred Time
                 </label>
                 <select
+                  id="time"
                   name="time"
                   value={formData.time}
                   onChange={handleChange}
