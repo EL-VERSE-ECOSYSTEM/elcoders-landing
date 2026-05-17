@@ -104,17 +104,15 @@ export function Booking() {
 
   const generateAutoReply = (name: string, serviceQuery: string) => {
     const serviceKeywords = [
-      {keys: ["mvp", "minimum viable product"], price: "$3,500 - $5,000 depending on scope", detail: "MVP in 4 weeks flat price start $3,500"},
-      {keys: ["penetration", "pentest", "security audit"], price: "$500 - $1,500", detail: "Cybersecurity: audit from $500, pentest $1,500"},
-      {keys: ["react native", "mobile app", "flutter", "ios", "android"], price: "$5,000+", detail: "Cross-platform or native apps — starting $5k"},
-      {keys: ["saas", "saas platform", "subscription"], price: "$6,500", detail: "Full SaaS with multi-tenancy & billing"},
-      {keys: ["frontend", "landing page", "corporate website", "dashboard"], price: "$500 - $2,500", detail: "Frontend & dashboards tailored"},
-      {keys: ["backend", "api", "database", "auth"], price: "$800 - $1,500", detail: "APIs, auth, DB design flat rates"},
-      {keys: ["ecommerce", "shopify", "woocommerce"], price: "$1,200 - $4,000", detail: "E‑commerce & CMS solutions"},
-      {keys: ["ai", "chatbot", "chatgpt", "automation"], price: "$1,500+", detail: "AI integration & custom automation"},
-      {keys: ["devops", "docker", "kubernetes", "cicd"], price: "$500 - $2,000", detail: "DevOps & infrastructure setup"},
-      {keys: ["maintenance", "retainer", "hourly"], price: "$50/hour or $450+/mo", detail: "Support retainers & emergency fixes"},
-      {keys: ["compliance", "gdpr", "bug bounty"], price: "$800 - $2,000", detail: "Compliance / bug bounty program"},
+      {keys: ["mvp", "minimum viable product"], price: "$2,258", detail: "MVP in 4 weeks. Core features + hosting setup."},
+      {keys: ["penetration", "pentest", "security audit"], price: "$323 - $968", detail: "Cybersecurity: Audit from $323, Pentest $968."},
+      {keys: ["saas", "saas platform", "subscription"], price: "$4,193", detail: "Full SaaS with multi-tenancy & billing."},
+      {keys: ["frontend", "landing page", "corporate website", "dashboard"], price: "$323 - $1,613", detail: "Frontend: Landing page $323, Dashboard $1,613."},
+      {keys: ["backend", "api", "database", "auth"], price: "$516 - $968", detail: "APIs from $968, DB design $516."},
+      {keys: ["ecommerce", "shopify", "woocommerce"], price: "$2,580", detail: "Full E‑commerce store in 4 weeks."},
+      {keys: ["ai", "chatbot", "chatgpt", "automation"], price: "$968 - $1,935", detail: "AI: Chatbot $968, Lead Scoring $1,935."},
+      {keys: ["devops", "docker", "kubernetes", "cicd", "hosting"], price: "$323", detail: "Cloud Hosting setup and infra."},
+      {keys: ["maintenance", "retainer", "hourly"], price: "$548", detail: "Monthly retainer (20 hours)."},
     ];
 
     let estimatedPrice = "custom quote (negotiable)";
@@ -131,7 +129,7 @@ export function Booking() {
         if(estimatedPrice !== "custom quote (negotiable)") break;
     }
 
-    return `✅ AUTO-REPLY from ELCODERS (EL VERSE ECOSYSTEM)\n\nHi ${name}, thanks for your interest in our tech services!\n📌 Your request: "${serviceQuery}"\n💰 Estimated price range: ${estimatedPrice}\n🛠️ Details: ${matchedDetail}\n\n🎯 Why choose ELCODERS:\n• 4-week MVP delivery • 100% code ownership • Flat project pricing • Free 2‑week support\n• Part of EL VERSE (ELITES, ELSPACE, EL ACCESS, NEXEL)\n\n🔁 Next step: Click the WhatsApp button below to continue negotiation with our dev team. We'll answer timeline, discounts, and custom requirements.\n(You can also pay deposit via Korapay before or after negotiation.)\n💳 Korapay link: https://checkout.korapay.com/pay/jz9dTrCxCRGCyRv\n\n— ELCODERS team | we build, you scale.`;
+    return `✅ AUTO-REPLY from EL CODERS (EL VERSE ECOSYSTEM)\n\nHi ${name}, thanks for your interest in our tech services!\n📌 Your request: "${serviceQuery}"\n💰 Estimated price range: ${estimatedPrice}\n🛠️ Details: ${matchedDetail}\n\n🎯 Why choose EL CODERS:\n• 4-week MVP delivery or it's free • 100% code ownership • Flat project pricing • Free 2-week support\n• Part of EL VERSE (ELITES, ELSPACE, EL ACCESS, NEXEL)\n\n🔁 Next step: Click the WhatsApp button below to continue negotiation with our dev team. We'll answer timeline, discounts, and custom requirements.\n(You can also pay deposit via Korapay before or after negotiation.)\n💳 Korapay link: https://checkout.korapay.com/pay/jz9dTrCxCRGCyRv\n\n— EL CODERS team | We Build. You Scale.`;
   };
 
   const getWhatsAppUrl = (userName: string, userService: string, userEmail: string) => {

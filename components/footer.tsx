@@ -8,31 +8,34 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-4">
-              ELCODERS
+            <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+              EL CODERS
             </h3>
-            <p className="text-slate-400 text-sm">
-              Transforming visions into digital reality with innovation and expertise.
+            <p className="text-slate-400 text-xs mb-4">
+              We Build. You Scale.
+            </p>
+            <p className="text-slate-500 text-xs leading-relaxed">
+              Part of EL VERSE ECOSYSTEM — EL ACCESS, ELSPACE, ELITES, NEXEL
             </p>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Services</h4>
+            <h4 className="text-white font-semibold mb-4">Solutions</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#" className="hover:text-cyan-400 transition">Web Development</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition">UI/UX Design</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition">AI Solutions</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition">Mobile Apps</a></li>
+              <li><a href="/#services" className="hover:text-cyan-400 transition">Frontend Dev</a></li>
+              <li><a href="/#services" className="hover:text-cyan-400 transition">Backend Dev</a></li>
+              <li><a href="/#services" className="hover:text-cyan-400 transition">Full Stack Apps</a></li>
+              <li><a href="/#services" className="hover:text-cyan-400 transition">Cybersecurity</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
+            <h4 className="text-white font-semibold mb-4">Explore</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#" className="hover:text-cyan-400 transition">About Us</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition">Our Work</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition">Blog</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition">Contact</a></li>
+              <li><a href="/#pricing" className="hover:text-cyan-400 transition">Pricing Plans</a></li>
+              <li><a href="/payments" className="hover:text-cyan-400 transition">Payments</a></li>
+              <li><a href="/careers" className="hover:text-cyan-400 transition">Careers</a></li>
+              <li><a href="/#faq" className="hover:text-cyan-400 transition">FAQ</a></li>
             </ul>
           </div>
 

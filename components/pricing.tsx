@@ -3,77 +3,52 @@
 import { useState } from 'react';
 
 export function Pricing() {
-  const [email, setEmail] = useState('');
-  const [promoCode, setPromoCode] = useState('');
-  const [appliedDiscount, setAppliedDiscount] = useState(false);
-
   const plans = [
     {
       id: 'scout',
       name: 'SCOUT',
-      originalPrice: 69,
-      salePrice: 49,
-      badge: 'Quick Fixes & Bug Squashing',
-      monthlyEquivalent: 980,
+      price: '$323+',
+      badge: 'Quick Fixes',
       features: [
-        { text: '1 Hour Dedicated Dev Time Daily', included: true },
-        { text: 'Direct Slack Channel Access', included: true },
-        { text: 'Bug Fixes & Hotfixes (Same Day)', included: true },
-        { text: 'Unlimited Repos', included: true },
-        { text: 'Rollover Hours (Up to 7 Days)', included: true },
-        { text: 'New Feature Development', included: false },
-        { text: 'Architecture Planning', included: false },
+        'Landing Page Development',
+        'Website Security Audit',
+        'Cloud Hosting Setup',
+        'Bug Fixes & Hotfixes',
+        'Direct Support'
       ],
       highlighted: false,
     },
     {
       id: 'squad',
       name: 'SQUAD',
-      originalPrice: 129,
-      salePrice: 89,
+      price: '$2,258+',
       badge: '⭐ MOST POPULAR',
-      monthlyEquivalent: 1780,
       features: [
-        { text: '3 Hours Dedicated Dev Time Daily', included: true },
-        { text: 'New Feature Development', included: true },
-        { text: 'Pull Request Reviews', included: true },
-        { text: 'Slack + Linear/Jira Integration', included: true },
-        { text: 'Code Refactoring & Cleanup', included: true },
-        { text: 'Rollover Hours (Up to 14 Days)', included: true },
-        { text: '2 Team Members (Dev + QA)', included: true },
-        { text: 'CTO-Level Strategy', included: false },
+        'MVP (Minimum Viable Product)',
+        'Full Stack Development',
+        'API Design & Integration',
+        'E-commerce Solutions',
+        '2 Weeks Post-Launch Support'
       ],
       highlighted: true,
     },
     {
       id: 'cto',
       name: 'CTO',
-      originalPrice: 199,
-      salePrice: 149,
-      badge: 'Fractional Leadership',
-      monthlyEquivalent: 2980,
+      price: '$4,193+',
+      badge: 'Enterprise',
       features: [
-        { text: '5 Hours Dedicated Dev Time Daily', included: true },
-        { text: 'Architecture & Tech Roadmap', included: true },
-        { text: 'Daily Strategy Huddle (30 mins)', included: true },
-        { text: 'Vendor & Tool Selection', included: true },
-        { text: 'Hiring Pipeline Consulting', included: true },
-        { text: 'Rollover Hours (Up to 30 Days)', included: true },
-        { text: 'Priority Slack & 24/7 Escalation', included: true },
-        { text: '2 Senior Devs + Tech Lead', included: true },
+        'Full SaaS Platform Build',
+        'Advanced AI/ML Integration',
+        'Security Penetration Testing',
+        'Monthly Retainer Support',
+        'Architecture Roadmap'
       ],
       highlighted: false,
     },
   ];
 
-  const applyPromo = () => {
-    if (promoCode.toUpperCase() === 'ELVERSE40') {
-      setAppliedDiscount(true);
-    }
-  };
-
   const handleBookConsultation = () => {
-    // Scroll to booking section
     const bookingSection = document.getElementById('booking');
     bookingSection?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -86,22 +61,32 @@ export function Pricing() {
             Pricing
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-4 text-balance">
-            Pay Daily. Pause Anytime. Scale as You Grow.
+            Flat Fees. Full Ownership. No Hourly Surprises.
           </h3>
           <p className="text-lg text-slate-400">
-            No long contracts. No surprise invoices. Just code shipped daily.
+            Simple, project-based pricing designed for speed and transparency.
           </p>
         </div>
 
-        {/* Discount Banner */}
-        <div className="bg-cyan-100 border-2 border-cyan-300 rounded-lg p-6 mb-12 max-w-4xl mx-auto">
-          <div className="text-center">
-            <p className="text-indigo-900 font-bold text-lg mb-2">
-              🎉 LAUNCH SPECIAL: First 7 Days at 40% Off on All Plans
-            </p>
-            <p className="text-indigo-800">
-              Use Code: <span className="font-bold">ELVERSE40</span> • Discount applied automatically at checkout • Cancel anytime
-            </p>
+        {/* Risk Reversal Banner */}
+        <div className="bg-cyan-100 border-2 border-cyan-300 rounded-2xl p-8 mb-16 max-w-4xl mx-auto relative overflow-hidden">
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <p className="text-indigo-950 font-black text-2xl mb-2">
+                4-Week Delivery or First Week Free
+              </p>
+              <p className="text-indigo-900 font-medium">
+                We take the risk so you can focus on growth. 100% Code Ownership.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2">
+               <div className="flex items-center gap-2 text-indigo-900 text-sm font-bold">
+                 <span>✓</span> No upfront payment for large projects (30% deposit)
+               </div>
+               <div className="flex items-center gap-2 text-indigo-900 text-sm font-bold">
+                 <span>✓</span> Free 2-week support after launch
+               </div>
+            </div>
           </div>
         </div>
 
@@ -110,138 +95,44 @@ export function Pricing() {
           {plans.map((plan) => (
             <div
               key={plan.id}
-              className={`rounded-2xl p-8 relative transition transform hover:scale-105 ${
+              className={`rounded-3xl p-8 relative transition transform hover:scale-105 ${
                 plan.highlighted
-                  ? 'bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-600 border-2 border-cyan-300 scale-105 shadow-2xl shadow-cyan-500/30'
-                  : 'bg-slate-800/50 backdrop-blur border border-slate-700 hover:border-cyan-500/30'
+                  ? 'bg-gradient-to-br from-blue-600 via-cyan-600 to-indigo-600 border-2 border-cyan-400 shadow-2xl shadow-cyan-500/20'
+                  : 'bg-slate-900/50 border border-slate-800'
               }`}
             >
-              {plan.badge && (
-                <div className={`text-xs font-bold inline-block px-3 py-1 rounded-full mb-4 ${
-                  plan.highlighted
-                    ? 'bg-white text-cyan-600'
-                    : 'bg-cyan-600 text-white'
-                }`}>
-                  {plan.badge}
-                </div>
-              )}
-
-              <h3 className={`text-3xl font-bold mb-2 ${plan.highlighted ? 'text-white' : 'text-white'}`}>
-                {plan.name}
-              </h3>
-
-              <div className="mb-6">
-                <div className="flex items-baseline gap-2">
-                  <span className={`text-5xl font-bold ${plan.highlighted ? 'text-white' : 'text-white'}`}>
-                    ${plan.salePrice}
-                  </span>
-                  <span className={`text-sm ${plan.highlighted ? 'text-blue-100' : 'text-slate-400'}`}>
-                    /day
-                  </span>
-                </div>
-                <p className={`text-sm line-through ${plan.highlighted ? 'text-blue-100' : 'text-slate-500'}`}>
-                  ${plan.originalPrice}/day
-                </p>
-                <p className={`text-xs mt-2 ${plan.highlighted ? 'text-blue-50' : 'text-slate-400'}`}>
-                  (Billed daily. Approx ${Math.round(plan.monthlyEquivalent)}/mo)
-                </p>
+              <div className={`text-xs font-bold inline-block px-3 py-1 rounded-full mb-6 ${
+                plan.highlighted ? 'bg-white text-blue-600' : 'bg-slate-800 text-slate-300'
+              }`}>
+                {plan.badge}
               </div>
 
-              <ul className="space-y-3 mb-8">
+              <h3 className="text-3xl font-bold mb-2 text-white">{plan.name}</h3>
+              <div className="mb-8">
+                <span className="text-5xl font-bold text-white">{plan.price}</span>
+              </div>
+
+              <ul className="space-y-4 mb-10">
                 {plan.features.map((feature, idx) => (
-                  <li
-                    key={idx}
-                    className={`text-sm flex items-start ${
-                      plan.highlighted ? 'text-white' : 'text-slate-300'
-                    } ${!feature.included && 'opacity-50'}`}
-                  >
-                    <span className="mr-3 flex-shrink-0">
-                      {feature.included ? '✅' : '❌'}
-                    </span>
-                    <span>{feature.text}</span>
+                  <li key={idx} className="text-sm flex items-start text-slate-200">
+                    <span className="mr-3 text-cyan-400">✓</span>
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <a
-                href="https://wa.link/d4oxqj"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`w-full py-3 rounded-lg font-semibold transition text-center block ${
-                  plan.highlighted
-                    ? 'bg-white text-cyan-600 hover:bg-slate-100'
-                    : 'bg-slate-700 text-white hover:bg-slate-600 border border-slate-600'
-                }`}
-              >
-                Start 7-Day Trial →
-              </a>
-
-              <p className={`text-xs text-center mt-3 ${plan.highlighted ? 'text-blue-100' : 'text-slate-400'}`}>
-                Have a promo code?{' '}
-                <button
-                  onClick={applyPromo}
-                  className={`underline ${plan.highlighted ? 'hover:text-white' : 'hover:text-slate-300'}`}
-                >
-                  Apply here
-                </button>
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Enterprise Section */}
-        <div className="bg-gradient-to-r from-indigo-900 to-indigo-950 rounded-2xl p-8 md:p-12 max-w-4xl mx-auto overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <div className="text-white text-xs font-bold mb-4">🏢 FOR GROWING TEAMS & AGENCIES</div>
-              <h4 className="text-3xl font-bold text-white mb-4">Need a Custom Plan?</h4>
-              <p className="text-indigo-200 text-sm">
-                Multiple projects? Dedicated team required? Longer commitment? We build tailored solutions for companies scaling fast.
-              </p>
-            </div>
-
-            <div>
-              <ul className="space-y-3 mb-8 text-indigo-100">
-                <li className="flex items-center gap-2">
-                  <span>✅</span>
-                  <span className="text-sm">Dedicated Account Manager</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span>✅</span>
-                  <span className="text-sm">Custom Hour Allocations (10+ hrs/day)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span>✅</span>
-                  <span className="text-sm">Volume Discounts (10-30% off daily rate)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span>✅</span>
-                  <span className="text-sm">Monthly Retainer Billing Option</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span>✅</span>
-                  <span className="text-sm">NDA & Custom Security Agreements</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span>✅</span>
-                  <span className="text-sm">White-Label Development</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span>✅</span>
-                  <span className="text-sm">Priority Support & SLA Customization</span>
-                </li>
-              </ul>
               <button
                 onClick={handleBookConsultation}
-                className="w-full px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-indigo-900 font-bold rounded-lg transition"
+                className={`w-full py-4 rounded-xl font-bold transition text-center ${
+                  plan.highlighted
+                    ? 'bg-white text-blue-600 hover:bg-slate-100'
+                    : 'bg-slate-800 text-white hover:bg-slate-700 border border-slate-700'
+                }`}
               >
-                Book a Custom Consultation →
+                Get Started →
               </button>
-              <p className="text-xs text-indigo-300 mt-3 text-center">
-                Typical response within 2 hours. No obligation call.
-              </p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

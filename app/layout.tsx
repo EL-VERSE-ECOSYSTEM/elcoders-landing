@@ -5,8 +5,8 @@ import { Analytics } from '@vercel/analytics/next'
 import { Loader } from '@/components/loader'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const geist = Geist({ subsets: ["latin"] });
+const geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -16,8 +16,8 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'ELCODERS - Premium Digital Solutions',
-  description: 'Transform your vision into reality with cutting-edge web development, UI/UX design, and AI solutions.',
+  title: 'EL CODERS - We Build. You Scale.',
+  description: 'EL CODERS: Where Startups Find Their Technical Backbone. Part of EL VERSE ECOSYSTEM.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -35,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">
+      <body className={`${geist.className} ${geistMono.className} antialiased`}>
         <Suspense fallback={null}>
           <Loader />
         </Suspense>
