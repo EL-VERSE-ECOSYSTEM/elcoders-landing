@@ -167,7 +167,7 @@ export default function TermsOfService() {
           <section>
             <h2 className="text-3xl font-bold mb-4">13. Limitation of Liability</h2>
             <p className="text-slate-300 leading-relaxed">
-              In no event shall ELCODERS, EL VERSE TECHNOLOGIES, or their officers, directors, employees, or agents be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the service.
+              In no event shall ELCODERS, EL VERSE ECOSYSTEM, or their officers, directors, employees, or agents be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the service.
             </p>
           </section>
 

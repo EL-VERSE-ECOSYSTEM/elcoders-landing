@@ -237,7 +237,7 @@ function ClientSignupContent() {
                 <p className="mt-4">
                   <strong className="text-lg">Cebastian Jerry</strong><br/>
                   <span className="text-gray-500">Sales, ELCODERS</span><br/>
-                  <span className="text-gray-500">EL VERSE TECHNOLOGIES</span>
+                  <span className="text-gray-500">EL VERSE ECOSYSTEM</span>
                 </p>
               </div>
               
@@ -255,7 +255,7 @@ function ClientSignupContent() {
             <div className="bg-gray-50 px-8 py-6 text-center border-t border-gray-200">
               <p className="text-2xl font-bold text-cyan-600 mb-2">ELCODERS</p>
               <p className="text-gray-500 text-sm">Daily Velocity. Zero Fluff.</p>
-              <p className="text-gray-400 text-xs mt-4">&copy; 2026 EL VERSE TECHNOLOGIES. All rights reserved.</p>
+              <p className="text-gray-400 text-xs mt-4">&copy; 2026 EL VERSE ECOSYSTEM. All rights reserved.</p>
             </div>
           </div>
         </div>

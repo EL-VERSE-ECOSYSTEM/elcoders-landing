@@ -24,7 +24,7 @@ export function FAQ() {
     },
     {
       question: 'Is ELCODERS a freelancer or agency?',
-      answer: 'ELCODERS is a dedicated development arm (sub-startup) of EL VERSE TECHNOLOGIES. You get full agency processes (QA, Code Review, Project Management) with freelancer flexibility (pause daily, no lock-in). We deliver Web Apps, Mobile Apps, AI/ML, Cybersecurity, Full Stack Development, Azure, and Blockchain solutions.',
+      answer: 'ELCODERS is a dedicated development arm (sub-startup) of EL VERSE ECOSYSTEM. You get full agency processes (QA, Code Review, Project Management) with freelancer flexibility (pause daily, no lock-in). We deliver Web Apps, Mobile Apps, AI/ML, Cybersecurity, Full Stack Development, Azure, and Blockchain solutions.',
     },
     {
       question: 'Can I switch plans later?',
