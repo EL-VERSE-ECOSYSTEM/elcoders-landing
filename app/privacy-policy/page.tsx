@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-3xl font-bold mb-4">1. Introduction</h2>
             <p className="text-slate-300 leading-relaxed">
-              ELCODERS ("we," "us," "our," or "Universe"), a development arm of EL VERSE TECHNOLOGIES, is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
+              ELCODERS ("we," "us," "our," or "Universe"), a development arm of EL VERSE ECOSYSTEM, is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
             </p>
           </section>
 

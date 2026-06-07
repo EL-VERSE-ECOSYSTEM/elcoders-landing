@@ -218,7 +218,7 @@ export const emailTemplates = {
           Talk soon,<br><br>
           <strong style="font-size: 15px;">Cebastian Jerry</strong><br>
           <span style="color: #666;">Sales, ELCODERS</span><br>
-          <span style="color: #666;">EL VERSE TECHNOLOGIES</span>
+          <span style="color: #666;">EL VERSE ECOSYSTEM</span>
         </p>
       </div>
       
@@ -230,7 +230,7 @@ export const emailTemplates = {
           <a href="https://x.com/ElVerse27">Twitter</a>
           <a href="https://elcoders-devs.vercel.app/">Website</a>
         </div>
-        <p>&copy; 2026 EL VERSE TECHNOLOGIES. All rights reserved.</p>
+        <p>&copy; 2026 EL VERSE ECOSYSTEM. All rights reserved.</p>
       </div>
     `;
     return emailBase(content);
@@ -292,7 +292,7 @@ export const emailTemplates = {
       
       <div class="footer">
         <p><strong class="logo">ELCODERS</strong> - Daily Velocity, Zero Fluff</p>
-        <p>&copy; 2026 EL VERSE TECHNOLOGIES. All rights reserved.</p>
+        <p>&copy; 2026 EL VERSE ECOSYSTEM. All rights reserved.</p>
       </div>
     `;
     return emailBase(content);
@@ -348,7 +348,7 @@ export const emailTemplates = {
       
       <div class="footer">
         <p><strong>ELCODERS Admin Panel</strong></p>
-        <p>&copy; 2026 EL VERSE TECHNOLOGIES. All rights reserved.</p>
+        <p>&copy; 2026 EL VERSE ECOSYSTEM. All rights reserved.</p>
       </div>
     `;
     return emailBase(content);
@@ -402,7 +402,7 @@ export const emailTemplates = {
       
       <div class="footer">
         <p><strong class="logo">ELCODERS</strong> - Daily Velocity, Zero Fluff</p>
-        <p>&copy; 2026 EL VERSE TECHNOLOGIES. All rights reserved.</p>
+        <p>&copy; 2026 EL VERSE ECOSYSTEM. All rights reserved.</p>
       </div>
     `;
     return emailBase(content);

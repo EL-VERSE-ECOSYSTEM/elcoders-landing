@@ -77,7 +77,7 @@ export function Footer() {
 
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-slate-500 text-sm">
-            &copy; {currentYear} EL VERSE TECHNOLOGIES. Daily Velocity, Zero Fluff.
+            &copy; {currentYear} EL VERSE ECOSYSTEM. Daily Velocity, Zero Fluff.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="/privacy-policy" className="text-slate-500 hover:text-slate-400 text-sm transition">

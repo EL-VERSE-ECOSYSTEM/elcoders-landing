@@ -69,7 +69,7 @@ export const pricingConfig = {
 export const siteConfig = {
   name: 'EL CODERS',
   tagline: 'We Build. You Scale.',
-  parent: 'EL VERSE TECHNOLOGIES',
+  parent: 'EL VERSE ECOSYSTEM',
   ecosystem: 'Part of EL VERSE ECOSYSTEM — EL ACCESS, ELSPACE, ELITES, NEXEL',
   description:
     'EL CODERS: Where Startups Find Their Technical Backbone. Flat Fees. Full Ownership. No Ghosting.',
