@@ -49,13 +49,16 @@ export default function PaymentsPage() {
               </div>
 
               <div className="text-center space-y-8">
-                <div className="inline-block p-4 bg-white rounded-2xl mb-4">
-                  <Image
-                    src="/elcoders-logo.png"
-                    alt="EL CODERS Logo"
-                    width={80}
-                    height={80}
-                  />
+                <div className="inline-block p-1 bg-gradient-to-r from-blue-500 via-cyan-500 to-indigo-500 rounded-full mb-4 shadow-lg shadow-cyan-500/20">
+                  <div className="bg-slate-950 p-3 rounded-full">
+                    <Image
+                      src="/elcoders-logo.png"
+                      alt="EL CODERS Logo"
+                      width={80}
+                      height={80}
+                      className="rounded-full object-cover"
+                    />
+                  </div>
                 </div>
 
                 <div className="space-y-4">
