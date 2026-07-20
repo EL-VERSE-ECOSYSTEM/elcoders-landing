@@ -4,8 +4,18 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-950 border-t border-slate-800">
-      <div className="max-w-6xl mx-auto px-4 py-12">
+    <footer className="relative bg-slate-950 pt-24 pb-12 border-t border-slate-900 overflow-hidden">
+      {/* Wave/Skyline silhouette at the top */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] transform rotate-180 bg-transparent pointer-events-none">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[60px]" style={{ filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.5))' }}>
+          {/* Layer 1: Foreground sharp peaks silhouette */}
+          <path d="M1200 120L0 120L0 0L240 60L480 20L720 80L960 40L1200 90V120Z" className="fill-slate-950" />
+          {/* Layer 2: Background softer silhouette */}
+          <path d="M1200 120L0 120L0 30L160 80L380 40L620 90L850 35L1040 75L1200 50V120Z" className="fill-slate-900/40" />
+        </svg>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
