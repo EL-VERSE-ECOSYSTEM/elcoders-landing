@@ -16,7 +16,7 @@ export function Navbar() {
             alt="ELCODERS Logo" 
             width={40} 
             height={40}
-            className="rounded"
+            className="rounded-full object-cover"
           />
           <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             EL CODERS

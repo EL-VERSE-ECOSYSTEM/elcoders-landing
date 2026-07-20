@@ -1,6 +1,10 @@
 'use client';
 
+import { useState } from 'react';
+
 export function Features() {
+  const [searchQuery, setSearchQuery] = useState('');
+
   const painPoints = [
     "Tired of freelancers who disappear mid-project?",
     "Hourly billing burning your budget?",
@@ -150,6 +154,15 @@ export function Features() {
     { service: 'SaaS Platform', time: '6-8 weeks', conditions: 'Standard ELCODERS timeline', icon: '💻' }
   ];
 
+  // Dynamic live search/filter logic
+  const filteredCategories = serviceCategories.map(cat => {
+    const filteredServices = cat.services.filter(svc =>
+      svc.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      cat.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    return { ...cat, services: filteredServices };
+  }).filter(cat => cat.services.length > 0);
+
   return (
     <section id="services" className="py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 relative">
       <div className="max-w-6xl mx-auto px-4">
@@ -182,30 +195,76 @@ export function Features() {
           </p>
         </div>
 
-        {/* Service Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {serviceCategories.map((cat, index) => (
-            <div key={index} className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/40 transition group flex flex-col justify-between">
-              <div>
-                <h4 className="text-xl font-bold text-white mb-6 border-b border-slate-800 pb-4 group-hover:border-cyan-500/30 transition">
-                  {cat.title}
-                </h4>
-                <ul className="space-y-4">
-                  {cat.services.map((svc, sIndex) => (
-                    <li key={sIndex} className="flex justify-between items-start gap-4 py-2 border-b border-slate-800/30 last:border-none group/item">
-                      <span className="text-slate-300 text-sm font-medium group-hover/item:text-cyan-400 transition leading-snug">
-                        {svc.name}
-                      </span>
-                      <span className="text-[11px] bg-cyan-950/80 text-cyan-400 border border-cyan-800/30 px-2 py-0.5 rounded-full font-bold whitespace-nowrap flex items-center gap-1 mt-0.5">
-                        ⏱️ {svc.shortestTime}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+        {/* Dynamic Live Search Bar */}
+        <div className="max-w-md mx-auto mb-16">
+          <div className="relative">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-500">
+              🔍
+            </span>
+            <input
+              type="text"
+              placeholder="Search services (e.g. Stripe, AI, Landing Page)..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-10 py-3.5 bg-slate-900/60 border border-slate-800 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300 shadow-inner text-sm"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="absolute inset-y-0 right-0 flex items-center pr-4 text-slate-400 hover:text-white transition"
+              >
+                ✖️
+              </button>
+            )}
+          </div>
+          {searchQuery && (
+            <p className="text-center text-xs text-slate-400 mt-2">
+              Found <span className="text-cyan-400 font-bold">{filteredCategories.reduce((sum, cat) => sum + cat.services.length, 0)}</span> matching services
+            </p>
+          )}
         </div>
+
+        {/* Empty State */}
+        {filteredCategories.length === 0 && (
+          <div className="text-center py-16 bg-slate-900/20 border border-slate-800/50 rounded-3xl max-w-xl mx-auto mb-16">
+            <div className="text-4xl mb-3 animate-bounce">🧐</div>
+            <h4 className="text-lg font-bold text-white mb-1">No services matched your search</h4>
+            <p className="text-sm text-slate-400 mb-6">Try searching for other keywords, or chat with us for custom requirements!</p>
+            <button
+              onClick={() => setSearchQuery('')}
+              className="px-5 py-2.5 bg-cyan-950 text-cyan-400 border border-cyan-800 hover:bg-cyan-900/50 hover:border-cyan-700 font-bold rounded-xl text-sm transition"
+            >
+              Clear Search
+            </button>
+          </div>
+        )}
+
+        {/* Service Grid */}
+        {filteredCategories.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredCategories.map((cat, index) => (
+              <div key={index} className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/40 transition group flex flex-col justify-between">
+                <div>
+                  <h4 className="text-xl font-bold text-white mb-6 border-b border-slate-800 pb-4 group-hover:border-cyan-500/30 transition">
+                    {cat.title}
+                  </h4>
+                  <ul className="space-y-4">
+                    {cat.services.map((svc, sIndex) => (
+                      <li key={sIndex} className="flex justify-between items-start gap-4 py-2 border-b border-slate-800/30 last:border-none group/item">
+                        <span className="text-slate-300 text-sm font-medium group-hover/item:text-cyan-400 transition leading-snug">
+                          {svc.name}
+                        </span>
+                        <span className="text-[11px] bg-cyan-950/80 text-cyan-400 border border-cyan-800/30 px-2 py-0.5 rounded-full font-bold whitespace-nowrap flex items-center gap-1 mt-0.5">
+                          ⏱️ {svc.shortestTime}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Quick Reference Section */}
         <div className="mt-24 border-t border-slate-800/80 pt-16">
