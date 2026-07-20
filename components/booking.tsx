@@ -183,15 +183,16 @@ export function Booking() {
   };
 
   const services = [
-    'Web App Development',
-    'Mobile App Development',
-    'AI/ML Solutions',
-    'Cybersecurity Services',
-    'Full Stack Development',
-    'Azure Cloud Services',
-    'Blockchain Development',
-    'UI/UX Design',
-    'Consultation',
+    'Frontend Development',
+    'Backend Development',
+    'Full Stack Applications',
+    'Mobile Development',
+    'Cybersecurity',
+    'AI & Automation',
+    'DevOps & Infrastructure',
+    'E-commerce & CMS',
+    'Maintenance & Support',
+    'Custom & Miscellaneous',
   ];
 
   // Generate available time slots
