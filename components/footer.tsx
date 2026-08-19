@@ -1,73 +1,85 @@
 'use client';
 
+import Link from 'next/link';
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-slate-950 pt-24 pb-12 border-t border-slate-900 overflow-hidden">
-      {/* Wave/Skyline silhouette at the top */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] transform rotate-180 bg-transparent pointer-events-none">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[60px]" style={{ filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.5))' }}>
-          {/* Layer 1: Foreground sharp peaks silhouette */}
-          <path d="M1200 120L0 120L0 0L240 60L480 20L720 80L960 40L1200 90V120Z" className="fill-slate-950" />
-          {/* Layer 2: Background softer silhouette */}
-          <path d="M1200 120L0 120L0 30L160 80L380 40L620 90L850 35L1040 75L1200 50V120Z" className="fill-slate-900/40" />
-        </svg>
-      </div>
+    <footer className="relative bg-[#0F172A] pt-20 pb-12 border-t border-[#2D2D4A] overflow-hidden">
+      {/* Top Subtle Purple Gradient Line Divider */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#6C2BD9] to-transparent"></div>
 
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+          {/* Brand & Ecosystem */}
+          <div className="space-y-3">
+            <h3 className="text-2xl font-extrabold bg-gradient-to-r from-white via-[#A855F7] to-[#6C2BD9] bg-clip-text text-transparent">
               EL CODERS
             </h3>
-            <p className="text-slate-400 text-xs mb-4">
-              We Build. You Scale.
+            <p className="text-sm font-semibold text-[#FFB800]">
+              EL CODERS — We Build. You Scale.
             </p>
-            <p className="text-slate-500 text-xs leading-relaxed">
-              Part of EL VERSE ECOSYSTEM — EL ACCESS, ELSPACE, ELITES, NEXEL
+            <div className="inline-block px-3 py-1 bg-[#1A1A2E] border border-[#2D2D4A] rounded-lg">
+              <p className="text-xs text-[#94A3B8] font-medium">
+                Part of <span className="text-white font-bold">EL VERSE ECOSYSTEM</span>
+              </p>
+            </div>
+            <p className="text-xs text-[#94A3B8] leading-relaxed">
+              EL ACCESS • ELSPACE • ELITES • NEXEL
             </p>
           </div>
 
+          {/* Solutions / Services */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Solutions</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="/#services" className="hover:text-cyan-400 transition">Frontend Dev</a></li>
-              <li><a href="/#services" className="hover:text-cyan-400 transition">Backend Dev</a></li>
-              <li><a href="/#services" className="hover:text-cyan-400 transition">Full Stack Apps</a></li>
-              <li><a href="/#services" className="hover:text-cyan-400 transition">Cybersecurity</a></li>
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4 border-l-2 border-[#6C2BD9] pl-2">
+              Solutions
+            </h4>
+            <ul className="space-y-2.5 text-sm text-[#94A3B8]">
+              <li><a href="/#services" className="hover:text-white transition">Frontend Development</a></li>
+              <li><a href="/#services" className="hover:text-white transition">Backend & APIs</a></li>
+              <li><a href="/#services" className="hover:text-white transition">Full Stack MVPs</a></li>
+              <li><a href="/#services" className="hover:text-white transition">AI & Automation</a></li>
+              <li><a href="/#services" className="hover:text-white transition">Cybersecurity</a></li>
             </ul>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Explore</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="/#pricing" className="hover:text-cyan-400 transition">Pricing Plans</a></li>
-              <li><a href="/payments" className="hover:text-cyan-400 transition">Payments</a></li>
-              <li><a href="/careers" className="hover:text-cyan-400 transition">Careers</a></li>
-              <li><a href="/#faq" className="hover:text-cyan-400 transition">FAQ</a></li>
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4 border-l-2 border-[#6C2BD9] pl-2">
+              Quick Links
+            </h4>
+            <ul className="space-y-2.5 text-sm text-[#94A3B8]">
+              <li><a href="/#pricing" className="hover:text-white transition">Pricing Plans</a></li>
+              <li><Link href="/payments" className="hover:text-white transition">Payments</Link></li>
+              <li><Link href="/careers" className="hover:text-white transition">Careers</Link></li>
+              <li><a href="/#faq" className="hover:text-white transition">FAQ</a></li>
+              <li><Link href="/auth" className="hover:text-white transition">Client Portal</Link></li>
             </ul>
           </div>
 
+          {/* Connect & Socials */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Connect</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4 border-l-2 border-[#6C2BD9] pl-2">
+              Connect
+            </h4>
+            <ul className="space-y-2.5 text-sm text-[#94A3B8]">
               <li>
                 <a 
                   href="https://wa.link/d4oxqj"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-cyan-400 transition"
+                  className="hover:text-emerald-400 transition flex items-center gap-2"
                 >
-                  WhatsApp
+                  <span>💬 WhatsApp Connect</span>
                 </a>
               </li>
               <li>
                 <a 
                   href="mailto:elcoderssofwares12@gmail.com"
-                  className="hover:text-cyan-400 transition"
+                  className="hover:text-white transition flex items-center gap-2"
                 >
-                  Email
+                  <span>✉️ Email Support</span>
                 </a>
               </li>
               <li>
@@ -75,27 +87,42 @@ export function Footer() {
                   href="https://x.com/ElVerse27"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-cyan-400 transition"
+                  className="hover:text-white transition"
                 >
-                  Twitter
+                  Twitter / X (@ElVerse27)
                 </a>
               </li>
-              <li><a href="#" className="hover:text-cyan-400 transition">LinkedIn</a></li>
+              <li>
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition"
+                >
+                  GitHub
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-slate-500 text-sm">
+        {/* Bottom Bar */}
+        <div className="border-t border-[#2D2D4A] pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#94A3B8]">
+          <p>
             &copy; {currentYear} EL VERSE ECOSYSTEM. Daily Velocity, Zero Fluff.
           </p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="/privacy-policy" className="text-slate-500 hover:text-slate-400 text-sm transition">
+
+          <div className="flex items-center gap-6">
+            <Link href="/privacy-policy" className="hover:text-white transition">
               Privacy Policy
-            </a>
-            <a href="/terms-of-service" className="text-slate-500 hover:text-slate-400 text-sm transition">
+            </Link>
+            <Link href="/terms-of-service" className="hover:text-white transition">
               Terms of Service
-            </a>
+            </Link>
+            {/* Hidden Admin Portal Link */}
+            <Link href="/auth" className="opacity-20 hover:opacity-100 transition text-[10px]">
+              Admin Portal
+            </Link>
           </div>
         </div>
       </div>
