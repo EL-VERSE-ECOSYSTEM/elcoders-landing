@@ -14,6 +14,7 @@ export function Features() {
 
   const serviceCategories = [
     {
+      categoryLabel: 'Frontend',
       title: '🌐 Frontend Development',
       services: [
         { name: 'Landing Page', description: 'Single-page responsive websites optimized for conversions', price: '$323', shortestTime: '1-2 days' },
@@ -25,6 +26,7 @@ export function Features() {
       ]
     },
     {
+      categoryLabel: 'Backend',
       title: '⚙️ Backend Development',
       services: [
         { name: 'REST API', description: 'Scalable APIs with documentation and versioning', price: '$968', shortestTime: '5-7 days' },
@@ -36,6 +38,7 @@ export function Features() {
       ]
     },
     {
+      categoryLabel: 'Full Stack',
       title: '📱 Full Stack Applications',
       services: [
         { name: 'MVP (Minimum Viable Product)', description: 'Build a working product in 4 weeks', price: '$2,258', shortestTime: '4 weeks' },
@@ -51,6 +54,7 @@ export function Features() {
       ]
     },
     {
+      categoryLabel: 'Mobile',
       title: '📲 Mobile Development',
       services: [
         { name: 'React Native App', description: 'Cross-platform iOS + Android apps', price: 'Contact', shortestTime: '4-6 weeks' },
@@ -61,6 +65,7 @@ export function Features() {
       ]
     },
     {
+      categoryLabel: 'Security',
       title: '🛡️ Cybersecurity',
       services: [
         { name: 'Website Security Audit', description: 'Vulnerability scanning, SSL checks, security reporting', price: '$323', shortestTime: '1-2 days' },
@@ -75,6 +80,7 @@ export function Features() {
       ]
     },
     {
+      categoryLabel: 'AI',
       title: '🤖 AI & Automation',
       services: [
         { name: 'ChatGPT Chatbot Integration', description: 'Custom AI chatbots with custom personas', price: '$968', shortestTime: '3-5 days' },
@@ -88,6 +94,7 @@ export function Features() {
       ]
     },
     {
+      categoryLabel: 'Cloud / DevOps',
       title: '🔧 DevOps & Infrastructure',
       services: [
         { name: 'Cloud Hosting Setup', description: 'AWS/GCP/DigitalOcean/Azure configuration', price: '$323', shortestTime: '1-2 days' },
@@ -101,6 +108,7 @@ export function Features() {
       ]
     },
     {
+      categoryLabel: 'E-commerce',
       title: '🛒 E-commerce & CMS',
       services: [
         { name: 'WooCommerce Store', description: 'Custom WordPress e-commerce solutions', price: 'Contact', shortestTime: '3-5 days' },
@@ -112,6 +120,7 @@ export function Features() {
       ]
     },
     {
+      categoryLabel: 'Support',
       title: '🛠️ Maintenance & Support',
       services: [
         { name: 'Hourly Development', description: 'Bug fixes, small features, quick changes', price: '$50/hour', shortestTime: '2-4 hours' },
@@ -123,6 +132,7 @@ export function Features() {
       ]
     },
     {
+      categoryLabel: 'Custom',
       title: '🧩 Custom & Miscellaneous',
       services: [
         { name: 'API Integration', description: 'Third-party API integration (e.g., payment, CRM, email)', price: 'Contact', shortestTime: '2-5 days' },
@@ -172,23 +182,32 @@ export function Features() {
     return { ...cat, services: filteredServices };
   }).filter(cat => cat.services.length > 0);
 
-  // Total services across all categories in the master list
   const totalServicesInCatalog = serviceCategories.reduce((sum, cat) => sum + cat.services.length, 0);
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 relative">
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="services" className="py-24 bg-[#0F172A] relative overflow-hidden">
+      {/* Background ambient glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#6C2BD9]/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Pain Points Section */}
         <div className="mb-24">
           <div className="text-center mb-12">
-            <h2 className="text-sm font-bold text-cyan-400 uppercase tracking-widest mb-4">The Challenge</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Building is Hard. We Make it Easy.</h3>
+            <span className="text-xs font-bold text-rose-400 bg-rose-500/10 px-3 py-1 rounded-full uppercase tracking-widest border border-rose-500/20">
+              The Startup Problem
+            </span>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-4">
+              Building is Hard. We Make it Easy.
+            </h3>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {painPoints.map((point, index) => (
-              <div key={index} className="bg-slate-900/40 border border-slate-800/50 p-6 rounded-2xl flex items-center gap-4">
-                <span className="text-red-500 text-xl flex-shrink-0">✕</span>
-                <p className="text-slate-300 text-sm leading-snug">{point}</p>
+              <div
+                key={index}
+                className="bg-[#1A1A2E] border border-[#2D2D4A] p-6 rounded-2xl flex items-start gap-4 hover:border-rose-500/50 transition duration-300 card-hover-lift"
+              >
+                <span className="text-rose-500 text-lg font-black bg-rose-500/10 p-2 rounded-lg flex-shrink-0">✕</span>
+                <p className="text-slate-300 text-sm leading-relaxed">{point}</p>
               </div>
             ))}
           </div>
@@ -196,26 +215,26 @@ export function Features() {
 
         {/* Catalog Header */}
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-cyan-400 uppercase tracking-widest mb-4">
-            Catalog
-          </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-white mb-4 text-balance">
+          <span className="text-xs font-bold text-[#FFB800] uppercase tracking-widest bg-[#FFB800]/10 px-3 py-1 rounded-full border border-[#FFB800]/20">
+            What We Build
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mt-4 mb-4 text-balance">
             Complete Service Catalog & Shortest Build Times
-          </h3>
-          <p className="text-slate-400 max-w-2xl mx-auto mb-6">
+          </h2>
+          <p className="text-[#94A3B8] text-base sm:text-lg max-w-2xl mx-auto mb-8">
             Elite engineering at record velocity. Full Ownership. High-velocity development tailored for scaling startups.
           </p>
 
           {/* Service Categories Summary */}
-          <div className="inline-flex flex-wrap items-center justify-center gap-4 bg-slate-900/80 border border-slate-800 p-4 rounded-2xl">
-            <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider">📊 Service Categories Summary:</span>
-            <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-300 font-medium">
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 bg-[#1A1A2E] border border-[#2D2D4A] p-4 rounded-2xl shadow-lg">
+            <span className="text-xs font-bold text-[#6C2BD9] uppercase tracking-wider">📊 Service Categories:</span>
+            <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-300 font-medium">
               {serviceCategories.map((cat, idx) => (
-                <span key={idx} className="whitespace-nowrap">
-                  {cat.title.split(' ').slice(1).join(' ')} ({cat.services.length})
+                <span key={idx} className="whitespace-nowrap bg-[#0F172A] px-2.5 py-1 rounded-md border border-[#2D2D4A]">
+                  {cat.categoryLabel} <span className="text-[#A855F7]">({cat.services.length})</span>
                 </span>
               ))}
-              <span className="text-cyan-400 font-bold whitespace-nowrap">
+              <span className="text-[#FFB800] font-bold bg-[#FFB800]/10 px-2.5 py-1 rounded-md border border-[#FFB800]/20 whitespace-nowrap">
                 Total: {totalServicesInCatalog} Services
               </span>
             </div>
@@ -223,82 +242,96 @@ export function Features() {
         </div>
 
         {/* Dynamic Live Search Bar */}
-        <div className="max-w-md mx-auto mb-16">
+        <div className="max-w-xl mx-auto mb-16">
           <div className="relative">
-            <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-500">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-[#94A3B8]">
               🔍
             </span>
             <input
               type="text"
-              placeholder="Search services (e.g. Stripe, AI, Landing Page)..."
+              placeholder="Search services (e.g. Stripe, AI, Landing Page, Mobile)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-10 py-3.5 bg-slate-900/60 border border-slate-800 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300 shadow-inner text-sm"
+              className="w-full pl-11 pr-10 py-4 bg-[#1A1A2E] border-2 border-[#2D2D4A] rounded-2xl text-white placeholder-[#94A3B8] focus:outline-none focus:border-[#6C2BD9] focus:ring-2 focus:ring-[#6C2BD9]/30 transition-all duration-300 text-sm shadow-inner"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute inset-y-0 right-0 flex items-center pr-4 text-slate-400 hover:text-white transition"
+                className="absolute inset-y-0 right-0 flex items-center pr-4 text-[#94A3B8] hover:text-white transition"
               >
                 ✖️
               </button>
             )}
           </div>
           {searchQuery && (
-            <p className="text-center text-xs text-slate-400 mt-2">
-              Found <span className="text-cyan-400 font-bold">{filteredCategories.reduce((sum, cat) => sum + cat.services.length, 0)}</span> matching services
+            <p className="text-center text-xs text-[#94A3B8] mt-2">
+              Found <span className="text-[#A855F7] font-bold">{filteredCategories.reduce((sum, cat) => sum + cat.services.length, 0)}</span> matching services
             </p>
           )}
         </div>
 
         {/* Empty State */}
         {filteredCategories.length === 0 && (
-          <div className="text-center py-16 bg-slate-900/20 border border-slate-800/50 rounded-3xl max-w-xl mx-auto mb-16">
+          <div className="text-center py-16 bg-[#1A1A2E] border border-[#2D2D4A] rounded-3xl max-w-xl mx-auto mb-16 p-8">
             <div className="text-4xl mb-3 animate-bounce">🧐</div>
             <h4 className="text-lg font-bold text-white mb-1">No services matched your search</h4>
-            <p className="text-sm text-slate-400 mb-6">Try searching for other keywords, or chat with us for custom requirements!</p>
+            <p className="text-sm text-[#94A3B8] mb-6">Try searching for other keywords, or chat with us on WhatsApp for custom build requirements!</p>
             <button
               onClick={() => setSearchQuery('')}
-              className="px-5 py-2.5 bg-cyan-950 text-cyan-400 border border-cyan-800 hover:bg-cyan-900/50 hover:border-cyan-700 font-bold rounded-xl text-sm transition"
+              className="px-6 py-2.5 bg-[#6C2BD9] text-white font-bold rounded-xl text-sm hover:bg-[#5B21B6] transition shadow-md"
             >
               Clear Search
             </button>
           </div>
         )}
 
-        {/* Service Grid */}
+        {/* Service Grid Cards */}
         {filteredCategories.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCategories.map((cat, index) => (
-              <div key={index} className="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/40 transition group flex flex-col justify-between">
+              <div
+                key={index}
+                className="bg-[#1A1A2E] border border-[#2D2D4A] hover:border-[#6C2BD9] rounded-3xl p-8 transition-all duration-300 card-hover-lift flex flex-col justify-between shadow-xl"
+              >
                 <div>
-                  <div className="flex justify-between items-center mb-6 border-b border-slate-800 pb-4 group-hover:border-cyan-500/30 transition">
-                    <h4 className="text-xl font-bold text-white">
+                  <div className="flex justify-between items-center mb-6 border-b border-[#2D2D4A] pb-4">
+                    <h4 className="text-xl font-bold text-white flex items-center gap-2">
                       {cat.title}
                     </h4>
-                    <span className="text-xs bg-slate-800 text-slate-400 px-2 py-0.5 rounded-full font-semibold">
-                      {cat.services.length} {cat.services.length === 1 ? 'service' : 'services'}
+                    <span className="text-[11px] bg-[#6C2BD9]/20 text-[#A855F7] border border-[#6C2BD9]/40 px-2.5 py-0.5 rounded-full font-bold">
+                      {cat.categoryLabel}
                     </span>
                   </div>
                   <ul className="space-y-6">
                     {cat.services.map((svc, sIndex) => (
-                      <li key={sIndex} className="flex flex-col gap-1.5 py-3 border-b border-slate-800/30 last:border-none group/item">
+                      <li key={sIndex} className="flex flex-col gap-1.5 py-3 border-b border-[#2D2D4A]/50 last:border-none group">
                         <div className="flex justify-between items-start gap-4">
-                          <span className="text-slate-200 text-sm font-bold group-hover/item:text-cyan-400 transition leading-snug">
+                          <span className="text-white text-sm font-bold group-hover:text-[#A855F7] transition leading-snug">
                             {svc.name}
                           </span>
-                          <span className="text-[11px] bg-cyan-950/80 text-cyan-400 border border-cyan-800/30 px-2 py-0.5 rounded-full font-bold whitespace-nowrap flex items-center gap-1">
+                          <span className="text-[11px] bg-[#0F172A] text-[#FFB800] border border-[#FFB800]/30 px-2 py-0.5 rounded-full font-bold whitespace-nowrap flex items-center gap-1">
                             ⏱️ {svc.shortestTime}
                           </span>
                         </div>
-                        <p className="text-slate-400 text-xs leading-relaxed">
+                        <p className="text-[#94A3B8] text-xs leading-relaxed">
                           {svc.description}
                         </p>
-                        <div className="text-xs font-semibold text-slate-300 flex items-center gap-1.5 mt-0.5">
-                          <span className="text-[10px] text-slate-500 uppercase tracking-widest">Starting Price:</span>
-                          <span className={svc.price === 'Contact' ? 'text-slate-400 italic' : 'text-cyan-400 font-bold'}>
-                            {svc.price}
-                          </span>
+                        <div className="flex justify-between items-center mt-2 pt-1">
+                          <div className="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
+                            <span className="text-[10px] text-[#94A3B8] uppercase tracking-wider">Starting:</span>
+                            <span className={svc.price === 'Contact' ? 'text-[#94A3B8] italic' : 'text-[#A855F7] font-bold'}>
+                              {svc.price}
+                            </span>
+                          </div>
+                          <a
+                            href="https://wa.link/d4oxqj"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-[#6C2BD9] hover:text-[#A855F7] font-bold flex items-center gap-1 transition"
+                          >
+                            <span>Learn More</span>
+                            <span>→</span>
+                          </a>
                         </div>
                       </li>
                     ))}
@@ -310,19 +343,19 @@ export function Features() {
         )}
 
         {/* Quick Reference Section */}
-        <div className="mt-24 border-t border-slate-800/80 pt-16">
+        <div className="mt-24 border-t border-[#2D2D4A] pt-16">
           <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">📊 Quick Reference</h3>
-            <p className="text-sm text-slate-400">Shortest Build Times by Category</p>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">📊 Quick Reference</h3>
+            <p className="text-sm text-[#94A3B8]">Shortest Build Times by Service Category</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {quickReferences.map((ref, idx) => (
-              <div key={idx} className="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-6 flex items-center justify-between">
+              <div key={idx} className="bg-[#1A1A2E] border border-[#2D2D4A] rounded-2xl p-6 flex items-center justify-between card-hover-lift">
                 <div>
-                  <span className="text-xs text-cyan-400 uppercase tracking-wider font-semibold block mb-1">{ref.category}</span>
-                  <span className="text-slate-200 font-medium text-sm">{ref.service}</span>
+                  <span className="text-xs text-[#6C2BD9] uppercase tracking-wider font-bold block mb-1">{ref.category}</span>
+                  <span className="text-white font-medium text-sm">{ref.service}</span>
                 </div>
-                <div className="bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 px-3 py-1 rounded-lg text-xs font-black whitespace-nowrap">
+                <div className="bg-[#6C2BD9]/20 text-[#A855F7] border border-[#6C2BD9]/40 px-3 py-1 rounded-lg text-xs font-extrabold whitespace-nowrap">
                   {ref.shortestTime}
                 </div>
               </div>
@@ -330,48 +363,48 @@ export function Features() {
           </div>
         </div>
 
-        {/* Fastest Possible Delivery Guarantee */}
-        <div className="mt-24 bg-gradient-to-br from-blue-950/40 to-cyan-950/40 border border-cyan-800/50 rounded-3xl p-8 md:p-12">
+        {/* Guaranteed Speed Delivery Banner */}
+        <div className="mt-24 bg-gradient-to-br from-[#1A1A2E] via-[#0F172A] to-[#1A1A2E] border-2 border-[#6C2BD9]/50 rounded-3xl p-8 md:p-12 shadow-2xl relative">
           <div className="text-center mb-10">
-            <span className="text-xs font-bold text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full uppercase tracking-widest">
-              Guaranteed Speed
+            <span className="text-xs font-bold text-[#FFB800] bg-[#FFB800]/10 px-3 py-1 rounded-full uppercase tracking-widest border border-[#FFB800]/20">
+              Guaranteed Velocity
             </span>
-            <h3 className="text-3xl font-bold text-white mt-4">🚀 Fastest Possible Delivery</h3>
-            <p className="text-slate-400 text-sm mt-2">Guaranteed shipping velocity conditions</p>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-4">🚀 Guaranteed Speed Delivery</h3>
+            <p className="text-[#94A3B8] text-sm mt-2">Engineered velocity with explicit commitment deadlines</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {guaranteedDeliveries.map((del, idx) => (
-              <div key={idx} className="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl text-center flex flex-col justify-between">
+              <div key={idx} className="bg-[#1A1A2E] border border-[#2D2D4A] p-6 rounded-2xl text-center flex flex-col justify-between card-hover-lift">
                 <div>
                   <div className="text-3xl mb-3">{del.icon}</div>
                   <h4 className="text-lg font-bold text-white mb-1">{del.service}</h4>
-                  <p className="text-2xl font-black text-cyan-400 mb-3">{del.time}</p>
+                  <p className="text-2xl font-black text-[#A855F7] mb-3">{del.time}</p>
                 </div>
-                <p className="text-xs text-slate-500 italic mt-auto">{del.conditions}</p>
+                <p className="text-xs text-[#94A3B8] italic mt-auto">{del.conditions}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Pricing & Risk-Free Payment Details */}
-        <div className="mt-24 border border-slate-800 bg-slate-900/30 rounded-3xl p-8 md:p-12 flex flex-col lg:flex-row gap-8 items-center justify-between">
+        {/* Pricing & Risk-Free Call to Action */}
+        <div className="mt-24 border border-[#2D2D4A] bg-[#1A1A2E] rounded-3xl p-8 md:p-12 flex flex-col lg:flex-row gap-8 items-center justify-between shadow-2xl">
           <div className="space-y-4 max-w-xl">
-            <h3 className="text-2xl md:text-3xl font-bold text-white">💰 Start Risk-Free with ELCODERS</h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white">💰 Start Risk-Free with EL CODERS</h3>
+            <p className="text-[#94A3B8] text-sm leading-relaxed">
               We stand behind our code. If we don&apos;t ship code on the very first day, you don&apos;t pay. Get a completely risk-free onboarding experience.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="flex items-center gap-2 text-sm text-slate-300">
-                <span className="text-cyan-400 text-lg">📞</span> Free 30-minute Consultation Call
+              <div className="flex items-center gap-2 text-sm text-slate-200">
+                <span className="text-[#FFB800] text-lg">📞</span> Free Consultation Call
               </div>
-              <div className="flex items-center gap-2 text-sm text-slate-300">
-                <span className="text-cyan-400 text-lg">🏷️</span> 40% Off your first 7 days
+              <div className="flex items-center gap-2 text-sm text-slate-200">
+                <span className="text-[#FFB800] text-lg">🏷️</span> 40% Off First 7 Days
               </div>
-              <div className="flex items-center gap-2 text-sm text-slate-300">
-                <span className="text-cyan-400 text-lg">🛡️</span> First day fully risk-free
+              <div className="flex items-center gap-2 text-sm text-slate-200">
+                <span className="text-[#FFB800] text-lg">🛡️</span> Day 1 Fully Risk-Free
               </div>
-              <div className="flex items-center gap-2 text-sm text-slate-300">
-                <span className="text-cyan-400 text-lg">⚡</span> Instant checkout & start
+              <div className="flex items-center gap-2 text-sm text-slate-200">
+                <span className="text-[#FFB800] text-lg">⚡</span> Instant Project Kickoff
               </div>
             </div>
           </div>
@@ -380,17 +413,17 @@ export function Features() {
               href="https://checkout.korapay.com/pay/jz9dTrCxCRGCyRv"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-xl font-bold text-lg text-center hover:shadow-lg hover:shadow-cyan-500/20 hover:scale-105 transition transform duration-200"
+              className="px-8 py-4 bg-gradient-to-r from-[#6C2BD9] to-[#5B21B6] text-white rounded-xl font-bold text-lg text-center hover:shadow-lg hover:shadow-[#6C2BD9]/30 hover:scale-105 transition duration-200 min-h-[48px] flex items-center justify-center gap-2"
             >
-              💳 Pay via Korapay
+              <span>💳 Pay via Korapay</span>
             </a>
             <a
               href="https://wa.link/d4oxqj"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-slate-800 text-white border border-slate-700 rounded-xl font-bold text-lg text-center hover:bg-slate-700 hover:scale-105 transition transform duration-200"
+              className="px-8 py-4 bg-[#0F172A] text-white border-2 border-[#2D2D4A] hover:border-[#6C2BD9] rounded-xl font-bold text-lg text-center hover:scale-105 transition duration-200 min-h-[48px] flex items-center justify-center gap-2"
             >
-              💬 Chat with us on WhatsApp
+              <span>💬 Chat on WhatsApp</span>
             </a>
           </div>
         </div>
