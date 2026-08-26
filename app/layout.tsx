@@ -40,6 +40,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-site-verification" content="KVhChvalPrqDzEZblsbANYolEv7pN-G7oJVqbGwONBg" />
+      </head>
       {process.env.NODE_ENV === 'production' && (
         <Script
           src="https://pl29668493.profitableratecpmnetwork.com/85/97/8d/85978d01dee406ba2641bc677c6fa5f2.js"
