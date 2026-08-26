@@ -50,6 +50,9 @@ export function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-2.5 text-sm text-[#94A3B8]">
+              <li><a href="/#pointers" className="hover:text-white transition">Ecosystem Guide</a></li>
+              <li><Link href="/portfolio" className="hover:text-white transition">Portfolio</Link></li>
+              <li><Link href="/technologies" className="hover:text-white transition">Technologies</Link></li>
               <li><a href="/#pricing" className="hover:text-white transition">Pricing Plans</a></li>
               <li><Link href="/payments" className="hover:text-white transition">Payments</Link></li>
               <li><Link href="/careers" className="hover:text-white transition">Careers</Link></li>

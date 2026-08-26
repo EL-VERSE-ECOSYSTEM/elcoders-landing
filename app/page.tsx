@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/navbar';
 import { Hero } from '@/components/hero';
 import { Trust } from '@/components/trust';
+import { PagePointers } from '@/components/page-pointers';
 import { Features } from '@/components/features';
 import { Pricing } from '@/components/pricing';
 import { Timeline } from '@/components/timeline';
@@ -26,6 +27,8 @@ export default function Home() {
       <Hero />
       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#6C2BD9]/50 to-transparent"></div>
       <Trust />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#6C2BD9]/50 to-transparent"></div>
+      <PagePointers />
       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#6C2BD9]/50 to-transparent"></div>
       <Features />
       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#6C2BD9]/50 to-transparent"></div>

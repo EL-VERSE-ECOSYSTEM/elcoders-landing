@@ -36,10 +36,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Script
-        src="https://pl29668493.effectivecpmnetwork.com/85/97/8d/85978d01dee406ba2641bc677c6fa5f2.js"
-        strategy="beforeInteractive"
-      />
+      {process.env.NODE_ENV === 'production' && (
+        <Script
+          src="https://pl29668493.profitableratecpmnetwork.com/85/97/8d/85978d01dee406ba2641bc677c6fa5f2.js"
+          strategy="beforeInteractive"
+        />
+      )}
       <body className={`${geist.className} ${geistMono.className} antialiased`}>
         <Suspense fallback={null}>
           <Loader />
