@@ -17,6 +17,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://elcoders-devs.vercel.app'),
   title: 'EL CODERS - We Build. You Scale.',
   description: 'EL CODERS: Where Startups Find Their Technical Backbone. Part of EL VERSE ECOSYSTEM.',
   generator: 'v0.app',
@@ -26,6 +27,9 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-icon.png',
     shortcut: '/elcoders-logo.png',
+  },
+  verification: {
+    google: 'KVhChvalPrqDzEZblsbANYolEv7pN-G7oJVqbGwONBg',
   },
 }
 
