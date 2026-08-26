@@ -23,6 +23,7 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
+    { name: 'Directory', href: '/#pointers' },
     { name: 'Services', href: '/#services' },
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'Technologies', href: '/technologies' },
