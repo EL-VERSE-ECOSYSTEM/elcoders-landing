@@ -2,7 +2,7 @@
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden bg-[#0F172A]">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden bg-[#0F172A]">
       {/* Subtle animated ambient background with purple & deep blue accents */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#6C2BD9]/25 rounded-full filter blur-[120px] animate-pulse"></div>
