@@ -36,7 +36,7 @@ const POINTERS: PointerItem[] = [
     path: '/#services',
     isExternalLink: false,
     description: 'Lists all digital solutions, software development services, emergency bug fixes, and hourly retainers.',
-    uiUxFeature: 'Interactive search bar, category filter tabs, shortest time badge, and real-time Korapay modal checkout.',
+    uiUxFeature: 'Interactive search bar, category filter tabs, shortest time badge, and real-time Paystack modal checkout.',
     icon: Layers,
     partBadge: 'Part 1: Solutions'
   },
@@ -80,7 +80,7 @@ const POINTERS: PointerItem[] = [
     path: '/payments',
     isExternalLink: true,
     description: 'Secure online payment processing portal for client invoices, service deposits, and retainer billing.',
-    uiUxFeature: 'Automated Korapay payment integration, currency selection, and instant transaction receipt generation.',
+    uiUxFeature: 'Automated Paystack payment integration, easy one-click payment tiers, and instant transaction receipt generation.',
     icon: CreditCard,
     partBadge: 'Part 5: Payments'
   },

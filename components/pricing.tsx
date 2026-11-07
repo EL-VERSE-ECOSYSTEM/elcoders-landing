@@ -121,16 +121,32 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <button
-                onClick={handleBookConsultation}
-                className={`w-full py-4 rounded-xl font-bold transition text-center ${
-                  plan.highlighted
-                    ? 'bg-white text-blue-600 hover:bg-slate-100'
-                    : 'bg-slate-800 text-white hover:bg-slate-700 border border-slate-700'
-                }`}
-              >
-                Get Started →
-              </button>
+              <div className="flex flex-col gap-2.5">
+                <a
+                  href="https://paystack.shop/pay/5sa4xpossk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-3.5 rounded-xl font-bold transition text-center shadow-lg flex items-center justify-center gap-2 ${
+                    plan.highlighted
+                      ? 'bg-white text-blue-600 hover:bg-slate-100 shadow-blue-900/30'
+                      : 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-emerald-500/20'
+                  }`}
+                >
+                  <span>⚡ Pay Deposit via Paystack</span>
+                  <span>→</span>
+                </a>
+
+                <button
+                  onClick={handleBookConsultation}
+                  className={`w-full py-2.5 rounded-xl text-xs font-semibold transition text-center ${
+                    plan.highlighted
+                      ? 'bg-white/10 hover:bg-white/20 text-white'
+                      : 'bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 border border-slate-700/60'
+                  }`}
+                >
+                  Or Book 30-min Consultation
+                </button>
+              </div>
             </div>
           ))}
         </div>
