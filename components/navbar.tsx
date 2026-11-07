@@ -86,6 +86,15 @@ export function Navbar() {
         {/* Action Button & Hamburger */}
         <div className="flex items-center gap-4">
           <a
+            href="https://paystack.shop/pay/5sa4xpossk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-xl text-sm font-bold transition-all duration-300 hover:scale-105 active:scale-95 min-h-[44px]"
+          >
+            <span>⚡ Quick Pay</span>
+          </a>
+
+          <a
             href="/auth"
             className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 bg-gradient-to-r from-[#6C2BD9] to-[#5B21B6] text-white rounded-xl text-sm font-bold shadow-md shadow-[#6C2BD9]/30 hover:shadow-lg hover:shadow-[#6C2BD9]/50 hover:scale-105 active:scale-95 transition-all duration-300 min-h-[44px]"
           >
@@ -125,13 +134,24 @@ export function Navbar() {
                 <span className="text-[#6C2BD9]">→</span>
               </a>
             ))}
-            <a
-              href="/auth"
-              onClick={() => setIsOpen(false)}
-              className="mt-2 w-full py-3 bg-gradient-to-r from-[#6C2BD9] to-[#5B21B6] text-white text-center rounded-xl font-bold text-base shadow-md shadow-[#6C2BD9]/30 min-h-[44px] flex items-center justify-center"
-            >
-              Join Now
-            </a>
+            <div className="flex flex-col gap-2 mt-2">
+              <a
+                href="https://paystack.shop/pay/5sa4xpossk"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white text-center rounded-xl font-bold text-base shadow-md shadow-emerald-500/20 min-h-[44px] flex items-center justify-center gap-2"
+              >
+                <span>⚡ Pay Now via Paystack</span>
+              </a>
+              <a
+                href="/auth"
+                onClick={() => setIsOpen(false)}
+                className="w-full py-3 bg-gradient-to-r from-[#6C2BD9] to-[#5B21B6] text-white text-center rounded-xl font-bold text-base shadow-md shadow-[#6C2BD9]/30 min-h-[44px] flex items-center justify-center"
+              >
+                Join Now
+              </a>
+            </div>
           </div>
         </div>
       )}

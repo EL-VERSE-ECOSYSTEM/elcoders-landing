@@ -129,7 +129,7 @@ export function Booking() {
         if(estimatedPrice !== "custom quote (negotiable)") break;
     }
 
-    return `✅ AUTO-REPLY from EL CODERS (EL VERSE ECOSYSTEM)\n\nHi ${name}, thanks for your interest in our tech services!\n📌 Your request: "${serviceQuery}"\n💰 Estimated price range: ${estimatedPrice}\n🛠️ Details: ${matchedDetail}\n\n🎯 Why choose EL CODERS:\n• 4-week MVP delivery or it's free • 100% code ownership • Flat project pricing • Free 2-week support\n• Part of EL VERSE (ELITES, ELSPACE, EL ACCESS, NEXEL)\n\n🔁 Next step: Click the WhatsApp button below to continue negotiation with our dev team. We'll answer timeline, discounts, and custom requirements.\n(You can also pay deposit via Korapay before or after negotiation.)\n💳 Korapay link: https://checkout.korapay.com/pay/jz9dTrCxCRGCyRv\n\n— EL CODERS team | We Build. You Scale.`;
+    return `✅ AUTO-REPLY from EL CODERS (EL VERSE ECOSYSTEM)\n\nHi ${name}, thanks for your interest in our tech services!\n📌 Your request: "${serviceQuery}"\n💰 Estimated price range: ${estimatedPrice}\n🛠️ Details: ${matchedDetail}\n\n🎯 Why choose EL CODERS:\n• 4-week MVP delivery or it's free • 100% code ownership • Flat project pricing • Free 2-week support\n• Part of EL VERSE (ELITES, ELSPACE, EL ACCESS, NEXEL)\n\n🔁 Next step: Click the WhatsApp button below to continue negotiation with our dev team. We'll answer timeline, discounts, and custom requirements.\n(You can also pay deposit via Paystack before or after negotiation.)\n💳 Paystack link: https://paystack.shop/pay/5sa4xpossk\n\n— EL CODERS team | We Build. You Scale.`;
   };
 
   const getWhatsAppUrl = (userName: string, userService: string, userEmail: string) => {

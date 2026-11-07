@@ -472,12 +472,12 @@ export function Features() {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
             <a
-              href="https://checkout.korapay.com/pay/jz9dTrCxCRGCyRv"
+              href="https://paystack.shop/pay/5sa4xpossk"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-gradient-to-r from-[#6C2BD9] to-[#5B21B6] text-white rounded-xl font-bold text-lg text-center hover:shadow-lg hover:shadow-[#6C2BD9]/30 hover:scale-105 transition duration-200 min-h-[48px] flex items-center justify-center gap-2"
             >
-              <span>💳 Pay via Korapay</span>
+              <span>💳 Pay via Paystack</span>
             </a>
             <a
               href="https://wa.link/d4oxqj"
