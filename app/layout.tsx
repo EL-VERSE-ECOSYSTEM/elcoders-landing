@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import { Suspense } from 'react'
-import Script from 'next/script'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { Loader } from '@/components/loader'
@@ -39,16 +38,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <head>
         <meta name="google-site-verification" content="KVhChvalPrqDzEZblsbANYolEv7pN-G7oJVqbGwONBg" />
       </head>
-      {process.env.NODE_ENV === 'production' && (
-        <Script
-          src="https://pl29668493.profitableratecpmnetwork.com/85/97/8d/85978d01dee406ba2641bc677c6fa5f2.js"
-          strategy="beforeInteractive"
-        />
-      )}
       <body className={`${geist.className} ${geistMono.className} antialiased`}>
         <Suspense fallback={null}>
           <Loader />
