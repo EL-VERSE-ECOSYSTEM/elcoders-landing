@@ -197,7 +197,7 @@ export default function PaymentsPage() {
 
                 <div className="mt-8 p-5 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl">
                   <p className="text-xs text-slate-300 leading-relaxed italic">
-                    &quot;Paystack provides an effortless, bank-grade checkout experience. You receive an automated receipt instantly upon completion.&quot;
+                    “Paystack provides an effortless, bank-grade checkout experience. You receive an automated receipt instantly upon completion.”
                   </p>
                 </div>
               </div>

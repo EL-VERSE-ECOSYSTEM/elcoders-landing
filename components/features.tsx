@@ -117,7 +117,7 @@ export function Features() {
         { name: 'AI Content Generation Tool', description: 'Automated content creation for blogs and social media', price: '$1,613', shortestTime: '7-10 days' },
         { name: 'Web Scraper / Data Extractor', description: 'Custom scraping solutions for any website', price: '$516', shortestTime: '3-5 days' },
         { name: 'Lead Scoring System (AI)', description: 'Predictive lead scoring with CRM integration', price: '$1,935', shortestTime: '7-14 days' },
-        { name: 'Recommendation Engine', description: '"You might also like" recommendation systems', price: '$2,580', shortestTime: '10-14 days' },
+        { name: 'Recommendation Engine', description: '“You might also like” recommendation systems', price: '$2,580', shortestTime: '10-14 days' },
         { name: 'Image Recognition API', description: 'Custom computer vision solutions', price: '$1,935', shortestTime: '10-14 days' },
         { name: 'Sentiment Analysis Tool', description: 'Social media and review sentiment analysis', price: '$1,613', shortestTime: '7-10 days' },
         { name: 'Document Processing Automation', description: 'Automated data extraction from PDFs and documents', price: '$1,290', shortestTime: '7-10 days' },

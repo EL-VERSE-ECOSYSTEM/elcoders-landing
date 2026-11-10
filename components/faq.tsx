@@ -7,7 +7,7 @@ export function FAQ() {
 
   const faqs = [
     {
-      question: 'What if I don&apos;t have 1 hour of work every single day?',
+      question: "What if I don't have 1 hour of work every single day?",
       answer: 'Hours roll over! Scout plan rolls 7 days. Squad rolls 14 days. CTO rolls 30 days. Bank unused hours for bigger sprints whenever you need them.',
     },
     {
@@ -16,7 +16,7 @@ export function FAQ() {
     },
     {
       question: 'How does payment work?',
-      answer: 'We invoice daily at midnight UTC using the card on file. Pause or cancel anytime from your dashboard. No contracts or hidden fees. You&apos;re never locked in.',
+      answer: "We invoice daily at midnight UTC using the card on file. Pause or cancel anytime from your dashboard. No contracts or hidden fees. You're never locked in.",
     },
     {
       question: 'What is the catch with the 40% discount?',
@@ -40,11 +40,11 @@ export function FAQ() {
     },
     {
       question: 'How do I book a consultation?',
-      answer: 'Scroll to the "Book Your Consultation" section, fill out your details, select your preferred date and time, and we&apos;ll send you a confirmation email. You can also WhatsApp us at https://wa.link/d4oxqj.',
+      answer: "Scroll to the \"Book Your Consultation\" section, fill out your details, select your preferred date and time, and we'll send you a confirmation email. You can also WhatsApp us at https://wa.link/d4oxqj.",
     },
     {
       question: 'What payment methods do you accept?',
-      answer: 'We accept payments via Korapay, Stripe, Coinbase, Paystack, and Flutterwave. All payments are secure and encrypted. You can also book a call to discuss custom payment arrangements.',
+      answer: 'We accept payments primarily via Paystack (cards, instant bank transfers, and USSD), as well as Stripe, Coinbase, and Flutterwave. All payments are secure and encrypted. You can also book a call to discuss custom payment arrangements.',
     },
   ];
 

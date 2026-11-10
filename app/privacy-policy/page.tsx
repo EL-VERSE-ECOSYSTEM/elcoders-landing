@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
               <span className="text-cyan-400">1.</span> Introduction
             </h2>
             <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
-              ELCODERS (&quot;we,&quot; &quot;us,&quot; &quot;our,&quot; or &quot;Universe&quot;), the software development arm of EL VERSE ECOSYSTEM, is committed to safeguarding your privacy. This Privacy Policy details our procedures regarding the collection, use, disclosure, and protection of your data when visiting our website or utilizing our high-velocity software engineering services.
+              ELCODERS (“we,” “us,” “our,” or “Universe”), the software development arm of EL VERSE ECOSYSTEM, is committed to safeguarding your privacy. This Privacy Policy details our procedures regarding the collection, use, disclosure, and protection of your data when visiting our website or utilizing our high-velocity software engineering services.
             </p>
           </section>
 
