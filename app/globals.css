@@ -130,3 +130,19 @@
   ring-color: #6C2BD9;
   ring-offset: 2px;
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a, button {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
