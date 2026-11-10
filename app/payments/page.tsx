@@ -23,31 +23,39 @@ export default function PaymentsPage() {
     {
       id: 'scout',
       name: 'Scout Fix Deposit',
+      badge: 'Quick Fix',
       priceUSD: '$323',
       amountNGN: '₦250,000',
-      description: 'Landing pages, security fixes, quick sprints'
+      description: 'Landing pages, security fixes, quick sprints',
+      perks: ['24hr Kickoff Guarantee', 'Direct Slack/WhatsApp Lead', '100% Code Delivery']
     },
     {
       id: 'squad',
       name: 'MVP / Squad Tier Deposit (30%)',
+      badge: 'Most Popular',
       priceUSD: '$675',
       amountNGN: '₦500,000',
       description: 'Standard 4-week MVP project kickoff deposit',
-      popular: true
+      popular: true,
+      perks: ['4-Week MVP Milestone', 'Full CI/CD & Cloud Setup', '2 Weeks Free Support']
     },
     {
       id: 'retainer',
       name: 'Developer Retainer',
+      badge: 'Dedicated Team',
       priceUSD: '$548',
       amountNGN: '₦400,000',
-      description: 'Monthly dedicated developer hours'
+      description: 'Monthly dedicated developer hours',
+      perks: ['Daily Code Commits', 'Weekly Architecture Sync', 'Unused Hours Rollover']
     },
     {
       id: 'custom',
       name: 'Custom Amount / Invoice',
+      badge: 'Milestone',
       priceUSD: 'Flexible',
       amountNGN: 'Any amount',
-      description: 'Enter specific project milestone payment'
+      description: 'Enter specific project milestone payment',
+      perks: ['Milestone Deliverable Protection', 'PCI-DSS Paystack Receipt', 'Instant WhatsApp Confirmation']
     }
   ];
 
@@ -123,28 +131,40 @@ export default function PaymentsPage() {
                     <div
                       key={tier.id}
                       onClick={() => setSelectedTier(tier.id)}
-                      className={`cursor-pointer p-4 rounded-2xl border transition relative flex flex-col justify-between ${
+                      className={`cursor-pointer p-5 rounded-2xl border transition-all duration-300 relative flex flex-col justify-between transform hover:scale-[1.02] ${
                         selectedTier === tier.id
-                          ? 'bg-emerald-500/10 border-emerald-400 shadow-lg shadow-emerald-500/10'
-                          : 'bg-slate-800/40 border-slate-700 hover:border-slate-600'
+                          ? 'bg-emerald-500/15 border-emerald-400 shadow-xl shadow-emerald-500/15 ring-2 ring-emerald-500/30'
+                          : 'bg-slate-800/40 border-slate-700 hover:border-slate-500 hover:bg-slate-800/70'
                       }`}
                     >
                       {tier.popular && (
-                        <span className="absolute -top-2.5 right-3 bg-emerald-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
-                          Popular
+                        <span className="absolute -top-2.5 right-3 bg-emerald-400 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-md">
+                          Most Popular
                         </span>
                       )}
                       <div>
-                        <div className="flex justify-between items-baseline mb-1">
-                          <h4 className="font-bold text-sm text-white">{tier.name}</h4>
+                        <div className="flex justify-between items-baseline mb-1.5">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-md border border-cyan-500/20">
+                            {tier.badge}
+                          </span>
                         </div>
-                        <p className="text-xl font-extrabold text-emerald-400 mb-1">{tier.amountNGN}</p>
-                        <p className="text-[11px] text-slate-400 leading-snug">{tier.description}</p>
+                        <h4 className="font-bold text-sm text-white mb-1">{tier.name}</h4>
+                        <p className="text-2xl font-black text-emerald-400 mb-1">{tier.amountNGN}</p>
+                        <p className="text-[11px] text-slate-300 leading-snug mb-3">{tier.description}</p>
+
+                        <div className="space-y-1.5 pt-2 border-t border-slate-700/50">
+                          {tier.perks.map((perk, pIdx) => (
+                            <div key={pIdx} className="flex items-center gap-1.5 text-[10px] text-slate-300">
+                              <span className="text-emerald-400 font-bold">✓</span>
+                              <span>{perk}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <div className="mt-4 pt-2 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
-                        <span>Est: {tier.priceUSD}</span>
-                        <span className={`w-4 h-4 rounded-full border flex items-center justify-center text-[10px] ${
-                          selectedTier === tier.id ? 'border-emerald-400 bg-emerald-500 text-slate-950 font-bold' : 'border-slate-600'
+                      <div className="mt-4 pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
+                        <span>Est: <strong className="text-white">{tier.priceUSD}</strong></span>
+                        <span className={`w-5 h-5 rounded-full border flex items-center justify-center text-[10px] transition-colors ${
+                          selectedTier === tier.id ? 'border-emerald-400 bg-emerald-500 text-slate-950 font-black' : 'border-slate-600'
                         }`}>
                           {selectedTier === tier.id ? '✓' : ''}
                         </span>

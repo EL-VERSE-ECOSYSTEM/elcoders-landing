@@ -74,24 +74,30 @@ function PaymentSuccessContent() {
         </div>
 
         {/* Card Receipt */}
-        <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-sm text-center">
-          {/* Animated Success Badge */}
-          <div className="w-20 h-20 bg-emerald-500/15 border-2 border-emerald-400/50 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg shadow-emerald-500/20 animate-in zoom-in-75 duration-300">
-            <svg
-              className="w-10 h-10 text-emerald-400 stroke-current"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="2.5"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
+        <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-sm text-center relative overflow-hidden">
+          {/* Subtle top glow bar */}
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500"></div>
+
+          {/* Animated Success Badge with glowing pulse */}
+          <div className="relative w-24 h-24 mx-auto mb-5">
+            <div className="absolute inset-0 bg-emerald-500/20 rounded-full animate-ping opacity-60"></div>
+            <div className="relative w-24 h-24 bg-gradient-to-tr from-emerald-500/20 to-teal-500/10 border-2 border-emerald-400 rounded-full flex items-center justify-center shadow-xl shadow-emerald-500/25">
+              <svg
+                className="w-12 h-12 text-emerald-400 stroke-current"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="2.5"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
           </div>
 
-          <span className="text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-500/20 inline-block mb-3">
-            Payment Completed
+          <span className="text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-3.5 py-1 rounded-full uppercase tracking-widest border border-emerald-500/20 inline-block mb-3">
+            ✓ Paystack Verified
           </span>
 
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-white mb-2 bg-gradient-to-r from-white via-emerald-200 to-teal-300 bg-clip-text text-transparent">
             Payment Confirmed!
           </h1>
           <p className="text-sm text-slate-400 max-w-sm mx-auto mb-6">
@@ -140,16 +146,20 @@ function PaymentSuccessContent() {
           </div>
 
           {/* Direct Next Step Action */}
-          <div className="p-4 bg-emerald-950/30 border border-emerald-500/20 rounded-2xl mb-6 text-left">
-            <div className="flex items-start gap-3">
-              <span className="text-2xl flex-shrink-0">🚀</span>
+          <div className="p-4 sm:p-5 bg-gradient-to-br from-emerald-950/40 via-slate-900 to-teal-950/30 border border-emerald-500/30 rounded-2xl mb-6 text-left">
+            <div className="flex items-start gap-3.5">
+              <span className="text-2xl flex-shrink-0 bg-emerald-500/20 p-2 rounded-xl border border-emerald-500/30">🚀</span>
               <div>
                 <h3 className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
-                  Next Step: Project Kickoff
+                  Next Step: Instant Project Kickoff
                 </h3>
                 <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-                  Connect directly with our lead developer on WhatsApp to confirm specifications, timeline, and repo setup.
+                  Connect directly with our engineering lead on WhatsApp to confirm specifications, private GitHub repo access, and kickoff sprint milestone.
                 </p>
+                <div className="mt-2.5 flex items-center gap-2 text-[11px] text-emerald-300 font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Response time: Under 15 minutes
+                </div>
               </div>
             </div>
           </div>
